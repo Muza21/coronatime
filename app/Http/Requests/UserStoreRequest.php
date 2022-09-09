@@ -16,8 +16,7 @@ class UserStoreRequest extends FormRequest
 		return [
 			'username'           => 'required|min:3|max:255',
 			'email'              => 'required|email|min:3|max:255',
-			'password'           => 'required|min:3|max:255',
-			'repeat_password'    => 'required|min:3|max:255|same:password',
+			'password'           => 'required|confirmed|min:3|max:255',
 		];
 	}
 }

@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\LanguageController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['guest'])->group(function () {
 	Route::view('/', 'login')->name('login');
-	Route::post('login', [LoginController::class, 'login'])->name('login.user');
+	Route::post('login', [AuthController::class, 'login'])->name('login.user');
 
 	Route::view('register', 'register')->name('register.index');
 	Route::post('register', [RegisterController::class, 'store'])->name('register.store');

@@ -2,22 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UserLoginRequest;
+use App\Http\Requests\LoginRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Validation\ValidationException;
 
-class LoginController extends Controller
+class AuthController extends Controller
 {
-	public function login(UserLoginRequest $request): RedirectResponse
+	public function login(LoginRequest $request): RedirectResponse
 	{
 		$validation = $request->validated();
-		if (!auth()->attempt($validation))
+		if (auth()->attempt($validation))
+		{
+			return redirect(route('dashboard'));
+		}
+		else
 		{
 			throw ValidationException::withMessages([
 				'email'=> 'Your email is not found.',
 			]);
 		}
-
-		return redirect(route('dashboard'));
 	}
 }
