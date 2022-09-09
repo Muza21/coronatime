@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-	return view('welcome');
-});
+Route::view('/', 'login')->name('login');
+Route::view('register', 'register')->name('register.index');
+Route::view('dashboard', 'dashboard')->name('dashboard');
+
+Route::get('register', [RegisterController::class, 'create'])->name('register.create');
 
 Route::get('/change-locale/{locale}', [LanguageController::class, 'change'])->name('locale.change');
