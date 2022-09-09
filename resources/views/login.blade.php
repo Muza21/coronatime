@@ -12,10 +12,21 @@
         <div class="mb-5">
             <label for="username">username</label>
 
-            <input class="border border-gray-400 p-2 w-full rounded-xl" type="name" name="username" id="username"
+            <input class="border border-gray-400 p-2 w-full rounded-xl" type="text" name="username" id="username"
                 value="{{ old('username') }}" required>
 
             @error('username')
+                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <div class="mb-5">
+            <label for="email">email</label>
+
+            <input class="border border-gray-400 p-2 w-full rounded-xl" type="email" name="email" id="email"
+                value="{{ old('email') }}" required>
+
+            @error('email')
                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
             @enderror
         </div>
@@ -47,7 +58,7 @@
         </button>
 
         <div class="text-center">
-            <p>don't have an account? <a href="{{ route('register') }}" class="font-bold">Sign up for free</a></p>
+            <p>don't have an account? <a href="{{ route('register.index') }}" class="font-bold">Sign up for free</a></p>
         </div>
 
     </form>

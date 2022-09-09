@@ -19,6 +19,6 @@ Route::view('/', 'login')->name('login');
 Route::view('register', 'register')->name('register.index');
 Route::view('dashboard', 'dashboard')->name('dashboard');
 
-Route::get('register', [RegisterController::class, 'create'])->name('register.create');
+Route::post('register', [RegisterController::class, 'store'])->name('register.store');
 
 Route::get('/change-locale/{locale}', [LanguageController::class, 'change'])->name('locale.change');

@@ -12,7 +12,7 @@
         <div class="mb-5">
             <label for="username">username</label>
 
-            <input class="border border-gray-400 p-2 w-full rounded-xl" type="name" name="username" id="username"
+            <input class="border border-gray-400 p-2 w-full rounded-xl" type="text" name="username" id="username"
                 value="{{ old('username') }}" required>
 
             @error('username')
@@ -43,12 +43,12 @@
         </div>
 
         <div class="mb-6">
-            <label for="password">Repeat password</label>
+            <label for="repeat_password">Repeat password</label>
 
-            <input class="border border-gray-400 p-2 w-full rounded-xl" type="password" name="password" id="password"
-                required>
+            <input class="border border-gray-400 p-2 w-full rounded-xl" type="password" name="repeat_password"
+                id="repeat_password" required>
 
-            @error('password')
+            @error('repeat_password')
                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
             @enderror
         </div>
@@ -60,7 +60,7 @@
 
         <button type="submit"
             class="bg-green-500 text-white text-center uppercase font-semibold text-lg py-4 w-full rounded-xl hover:bg-green-600">
-            Log In
+            Sign Up
         </button>
 
         <div class="text-center">
