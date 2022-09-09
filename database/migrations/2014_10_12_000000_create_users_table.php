@@ -19,7 +19,6 @@ return new class extends Migration {
 			$table->boolean('email_verify')->default(false);
 			$table->timestamp('email_verified_at')->nullable();
 			$table->string('password');
-			$table->string('repeat_password');
 			$table->rememberToken();
 			$table->timestamps();
 		});

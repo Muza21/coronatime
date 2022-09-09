@@ -6,7 +6,7 @@
         <p class="text-sm text-gray-400">Welcome back! Please enter your details</p>
     </header>
 
-    <form method="POST" action="#">
+    <form method="POST" action="{{ route('login.user') }}">
         @csrf
 
         <div class="mb-5">
