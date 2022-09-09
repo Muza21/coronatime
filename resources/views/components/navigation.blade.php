@@ -18,7 +18,7 @@
                 <a href="{{ route('locale.change', 'ka') }}">Georgian</a>
             </div>
             <div>
-                <h3 class="text-xl font-bold">Takeshi k.</h3>
+                <h3 class="text-xl font-bold">{{ Auth::user()->username }}</h3>
             </div>
             <div>
                 <button>Log Out</button>

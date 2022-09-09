@@ -13,7 +13,7 @@ class AuthController extends Controller
 		$validation = $request->validated();
 		if (auth()->attempt($validation))
 		{
-			return redirect(route('dashboard'));
+			return redirect(route('dashboard.view'));
 		}
 		else
 		{

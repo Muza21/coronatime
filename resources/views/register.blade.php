@@ -6,7 +6,7 @@
         <p class="text-sm text-gray-400">Please enter required info to sign up</p>
     </header>
 
-    <form method="POST" action="#">
+    <form method="POST" action="{{ route('registration.store') }}">
         @csrf
 
         <div class="mb-5">
@@ -64,7 +64,7 @@
         </button>
 
         <div class="text-center">
-            <p>Already have an account? <a href="{{ route('login') }}" class="font-bold">Log In</a></p>
+            <p>Already have an account? <a href="{{ route('login.view') }}" class="font-bold">Log In</a></p>
         </div>
 
     </form>

@@ -58,7 +58,7 @@
         </button>
 
         <div class="text-center">
-            <p>don't have an account? <a href="{{ route('register.index') }}" class="font-bold">Sign up for free</a></p>
+            <p>don't have an account? <a href="{{ route('register.view') }}" class="font-bold">Sign up for free</a></p>
         </div>
 
     </form>
