@@ -43,12 +43,12 @@
         </div>
 
         <div class="mb-6">
-            <label for="repeat_password">Repeat password</label>
+            <label for="password_confirmation">Repeat password</label>
 
-            <input class="border border-gray-400 p-2 w-full rounded-xl" type="password" name="repeat_password"
-                id="repeat_password" required>
+            <input class="border border-gray-400 p-2 w-full rounded-xl" type="password" name="password_confirmation"
+                id="password_confirmation" required>
 
-            @error('repeat_password')
+            @error('password_confirmation')
                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
             @enderror
         </div>

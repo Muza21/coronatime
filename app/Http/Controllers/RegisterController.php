@@ -14,8 +14,8 @@ class RegisterController extends Controller
 		User::create([
 			'username' => $validated['username'],
 			'email'    => $validated['email'],
-			'password' => $validated['password'],
+			'password' => bcrypt($validated['password']),
 		]);
-		return redirect(route('login'));
+		return redirect(route('login.view'));
 	}
 }
