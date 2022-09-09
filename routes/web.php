@@ -27,3 +27,5 @@ Route::middleware(['guest'])->group(function () {
 Route::view('dashboard', 'dashboard')->name('dashboard.view');
 
 Route::get('/change-locale/{locale}', [LanguageController::class, 'change'])->name('locale.change');
+
+Route::post('logut', [AuthController::class, 'logout'])->name('logout.user');

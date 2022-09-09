@@ -20,9 +20,13 @@
             <div>
                 <h3 class="text-xl font-bold">{{ Auth::user()->username }}</h3>
             </div>
-            <div>
-                <button>Log Out</button>
-            </div>
+            <form method="POST" action="{{ route('logout.user') }}">
+                @csrf
+                <div>
+                    <button type="submit">Log Out</button>
+                </div>
+            </form>
+
         </div>
     </div>
     <div>
