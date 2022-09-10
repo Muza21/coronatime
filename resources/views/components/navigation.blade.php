@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Coronatime</title>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     @vite('resources/css/app.css')
 </head>
 
@@ -16,9 +17,30 @@
                 <x-logo />
             </div>
             <div class="flex">
-                <div class="mx-5 text-xl">
-                    <a href="{{ route('locale.change', 'en') }}">English</a>
-                    <a href="{{ route('locale.change', 'ka') }}">Georgian</a>
+                <div class="mx-5 text-xl flex">
+
+                    <div x-data="{ show: false }" @click.away="show = false" class="relative">
+                        <div @click="show = !show">
+                            <button class="pl-3 pr-6 w-full lg:w-28 text-left flex lg:inline-flex  align-middle">
+
+                                {{ 'en' === App::currentLocale() ? 'English' : 'Georgian' }}
+
+                                <x-icon name="down-arrow" class="absolute pointer-events-none"
+                                    style="right: 0px; top:6px" />
+                            </button>
+                        </div>
+
+                        <div x-show="show"
+                            class="py-2 absolute bg-gray-100 w-full rounded-xl z-50 overflow-auto max-h-52"
+                            style="display: none">
+                            <x-dropdown-item href="{{ route('locale.change', 'en') }}">
+                                English
+                            </x-dropdown-item>
+                            <x-dropdown-item href="{{ route('locale.change', 'ka') }}">
+                                Georgian
+                            </x-dropdown-item>
+                        </div>
+                    </div>
                 </div>
                 <div class="mx-5 text-xl">
                     <h3 class="text-xl font-bold">{{ ucwords(Auth::user()->username) }}</h3>
