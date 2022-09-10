@@ -29,18 +29,15 @@
                         <button type="submit">Log Out</button>
                     </div>
                 </form>
-
             </div>
-
         </div>
-        {{-- {{ route('country.view') }} --}}
     </div>
     <div class="mx-16 flex py-2 border-b border-gray-200">
         <div>
-            <a href="#">Worldwide</a>
+            <a href="{{ route('dashboard.view') }}">Worldwide</a>
         </div>
-        <div>
-            <a href="#">Countries</a>
+        <div class="ml-10">
+            <a href="{{ route('country.view') }}">Countries</a>
         </div>
     </div>
     <div>
