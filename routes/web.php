@@ -25,6 +25,7 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::view('dashboard', 'dashboard')->name('dashboard.view');
+Route::view('dashboard/by-country', 'by-country')->name('country.view');
 
 Route::get('/change-locale/{locale}', [LanguageController::class, 'change'])->name('locale.change');
 

@@ -10,23 +10,37 @@
 </head>
 
 <body>
-    <div class="flex justify-between mt-5">
-        <x-logo />
-        <div class="flex">
+    <div class="border-b border-gray-200 py-6">
+        <div class="flex justify-between mx-16">
             <div>
-                <a href="{{ route('locale.change', 'en') }}">English</a>
-                <a href="{{ route('locale.change', 'ka') }}">Georgian</a>
+                <x-logo />
             </div>
-            <div>
-                <h3 class="text-xl font-bold">{{ Auth::user()->username }}</h3>
-            </div>
-            <form method="POST" action="{{ route('logout.user') }}">
-                @csrf
-                <div>
-                    <button type="submit">Log Out</button>
+            <div class="flex">
+                <div class="mx-5 text-xl">
+                    <a href="{{ route('locale.change', 'en') }}">English</a>
+                    <a href="{{ route('locale.change', 'ka') }}">Georgian</a>
                 </div>
-            </form>
+                <div class="mx-5 text-xl">
+                    <h3 class="text-xl font-bold">{{ ucwords(Auth::user()->username) }}</h3>
+                </div>
+                <form method="POST" action="{{ route('logout.user') }}">
+                    @csrf
+                    <div class="pl-5 border-l border-gray-200 text-xl">
+                        <button type="submit">Log Out</button>
+                    </div>
+                </form>
 
+            </div>
+
+        </div>
+        {{-- {{ route('country.view') }} --}}
+    </div>
+    <div class="mx-16 flex py-2 border-b border-gray-200">
+        <div>
+            <a href="#">Worldwide</a>
+        </div>
+        <div>
+            <a href="#">Countries</a>
         </div>
     </div>
     <div>
