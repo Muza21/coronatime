@@ -4,8 +4,10 @@ use App\Models\Statistic;
 <x-navigation>
     <section class="mx-16">
         <div class="mt-10">
-            <input type="text" class="border-2 border-gray-100 rounded-lg pl-10 py-3" name="search"
-                placeholder="Search by country">
+            <form method="GET" action="#">
+                <input type="text" class="border-2 border-gray-100 rounded-lg pl-10 py-3" name="search"
+                    placeholder="Search by country">
+            </form>
         </div>
         <main class="rounded-md mt-10 border border-gray-200">
             <div class="overflow-y-auto relative overflow-auto max-h-96">
