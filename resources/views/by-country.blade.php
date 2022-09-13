@@ -15,7 +15,7 @@ use App\Models\Statistic;
                             <th scope="col" class="py-3 px-6">
                                 <div class="flex">
                                     Country
-                                    <a class="h-5 w-5 ml-1" {{ $reverse = $sort == 'asc' ? 'desc' : 'asc' }}
+                                    <a class="h-5 w-5 ml-1"
                                         href="{{ route('country.view', [$sort == 'asc' ? 'desc' : 'asc']) }}"
                                         class="">
                                         <img class="h-5 w-5" src="/images/up-arrow.svg" alt="up">
@@ -26,8 +26,9 @@ use App\Models\Statistic;
                             <th scope="col" class="py-3 px-6">
                                 <div class="flex">
                                     New Cases
-                                    <a class="h-5 w-5 ml-1" x-data="{ desc: false }" @click="desc = !desc"
-                                        href="{{ route('sort.new_cases') }}" class="">
+                                    <a class="h-5 w-5 ml-1"
+                                        href="{{ route('sort.new_cases', [$sort == 'asc' ? 'desc' : 'asc']) }}"
+                                        class="">
                                         <img class="h-5 w-5" src="/images/up-arrow.svg" alt="up">
                                         <img class="h-5 w-5 -mt-5" src="/images/down-arrow.svg" alt="down">
                                     </a>
@@ -36,8 +37,9 @@ use App\Models\Statistic;
                             <th scope="col" class="py-3 px-6">
                                 <div class="flex">
                                     Recovered
-                                    <a class="h-5 w-5 ml-1" x-data="{ desc: false }" @click="desc = !desc"
-                                        href="{{ route('sort.recovered') }}" class="">
+                                    <a class="h-5 w-5 ml-1"
+                                        href="{{ route('sort.recovered', [$sort == 'asc' ? 'desc' : 'asc']) }}"
+                                        class="">
                                         <img class="h-5 w-5" src="/images/up-arrow.svg" alt="up">
                                         <img class="h-5 w-5 -mt-5" src="/images/down-arrow.svg" alt="down">
                                     </a>
@@ -47,8 +49,9 @@ use App\Models\Statistic;
                             <th scope="col" class="py-3 px-6">
                                 <div class="flex">
                                     Deaths
-                                    <a class="h-5 w-5 ml-1" x-data="{ desc: false }" @click="desc = !desc"
-                                        href="{{ route('sort.deaths') }}" class="">
+                                    <a class="h-5 w-5 ml-1"
+                                        href="{{ route('sort.deaths', [$sort == 'asc' ? 'desc' : 'asc']) }}"
+                                        class="">
                                         <img class="h-5 w-5" src="/images/up-arrow.svg" alt="up">
                                         <img class="h-5 w-5 -mt-5" src="/images/down-arrow.svg" alt="down">
                                     </a>

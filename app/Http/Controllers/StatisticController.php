@@ -14,54 +14,28 @@ class StatisticController extends Controller
 	public function index(): View
 	{
 		$sort = request('sort', 'asc');
-		// dd($sort);
 		$countries = DB::table('statistics')->orderBy('location', $sort)->get();
 		return view('by-country', compact('countries', 'sort'));
-		// if (!request()->routeIs('country.view'))
-		// {
-		// 	$countries = DB::table('statistics')
-		// 	->orderBy('location', 'asc')
-		// 	->get();
-		// }
-		// else
-		// {
-		// 	$countries = DB::table('statistics')
-		// 	->orderBy('location', 'desc')
-		// 	->get();
-		// }
-
-		// return view('by-country', [
-		// 	'countries' => $countries,
-		// ]);
 	}
 
 	public function sortByNewCases()
 	{
-		$countries = DB::table('statistics')
-		->orderBy('new_cases', $this->sortDirection)
-		->get();
-		return view('by-country', [
-			'countries' => $countries,
-		]);
+		$sort = request('sort', 'asc');
+		$countries = DB::table('statistics')->orderBy('new_cases', $sort)->get();
+		return view('by-country', compact('countries', 'sort'));
 	}
 
 	public function sortByRecovered()
 	{
-		$countries = DB::table('statistics')
-		->orderBy('recovered', $this->sortDirection)
-		->get();
-		return view('by-country', [
-			'countries' => $countries,
-		]);
+		$sort = request('sort', 'asc');
+		$countries = DB::table('statistics')->orderBy('recovered', $sort)->get();
+		return view('by-country', compact('countries', 'sort'));
 	}
 
 	public function sortByDeaths()
 	{
-		$countries = DB::table('statistics')
-		->orderBy('deaths', $this->sortDirection)
-		->get();
-		return view('by-country', [
-			'countries' => $countries,
-		]);
+		$sort = request('sort', 'asc');
+		$countries = DB::table('statistics')->orderBy('deaths', $sort)->get();
+		return view('by-country', compact('countries', 'sort'));
 	}
 }
