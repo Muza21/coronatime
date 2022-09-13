@@ -21,12 +21,12 @@
 
                     <div x-data="{ show: false }" @click.away="show = false" class="relative">
                         <div @click="show = !show">
-                            <button class="pl-3 pr-6 w-full lg:w-28 text-left flex lg:inline-flex  align-middle">
+                            <button class="pl-3 pr-6 w-full lg:w-28 text-left flex lg:inline-flex">
 
                                 {{ 'en' === App::currentLocale() ? 'English' : 'Georgian' }}
 
                                 <x-icon name="down-arrow" class="absolute pointer-events-none"
-                                    style="right: 0px; top:6px" />
+                                    style="right: 0px; top:4px" />
                             </button>
                         </div>
 
@@ -54,12 +54,12 @@
             </div>
         </div>
     </div>
-    <div class="mx-16 flex py-2 border-b border-gray-200">
-        <div>
+    <div class="mx-16 flex border-b border-gray-200 mt-10">
+        <div class="border-b-2 pb-2 border-black ">
             <a href="{{ route('dashboard.view') }}">Worldwide</a>
         </div>
-        <div class="ml-10">
-            <a href="{{ route('country.view') }}">Countries</a>
+        <div class="border-b-2 pb-2 border-black ml-10">
+            <a href="{{ route('country.view', ['asc']) }}">Countries</a>
         </div>
     </div>
     <div>

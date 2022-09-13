@@ -6,7 +6,7 @@ use App\Models\Statistic;
         <div class="mx-10 mt-14">
 
             <div class="lg:grid lg:grid-cols-3 mt-20">
-                <div class=' hover:bg-gray-100 border rounded-xl mx-5'>
+                <div class='bg-blue-50 hover:bg-blue-100 border rounded-xl mx-5'>
                     <div class="py-6 px-5">
                         <div class="mt-8 flex flex-col items-center justify-between">
                             <div>
@@ -27,7 +27,7 @@ use App\Models\Statistic;
                     </div>
                 </div>
 
-                <div class=' hover:bg-gray-100 border rounded-xl mx-5'>
+                <div class='bg-green-50 hover:bg-green-100 border rounded-xl mx-5'>
                     <div class="py-6 px-5">
                         <div class="mt-8 flex flex-col items-center justify-between">
                             <div>
@@ -48,7 +48,7 @@ use App\Models\Statistic;
                     </div>
                 </div>
 
-                <div class=' hover:bg-gray-100 border rounded-xl mx-5'>
+                <div class='bg-yellow-50 hover:bg-yellow-100 border rounded-xl mx-5'>
                     <div class="py-6 px-5">
                         <div class="mt-8 flex flex-col items-center justify-between">
                             <div>
