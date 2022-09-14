@@ -23,7 +23,7 @@
                         <div @click="show = !show">
                             <button class="pl-3 pr-6 w-full lg:w-28 text-left flex lg:inline-flex">
 
-                                {{ 'en' === App::currentLocale() ? 'English' : 'Georgian' }}
+                                {{ 'en' === app()->currentLocale() ? 'English' : 'Georgian' }}
 
                                 <x-icon name="down-arrow" class="absolute pointer-events-none"
                                     style="right: 0px; top:4px" />
