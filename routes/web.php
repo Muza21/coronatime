@@ -26,15 +26,11 @@ Route::middleware(['guest'])->group(function () {
 });
 Route::middleware(['auth'])->group(function () {
 	Route::view('dashboard', 'dashboard')->name('dashboard.view');
-	Route::get('dashboard/{sort}', [StatisticController::class, 'index'])->name('country.view');
-	// Route::get('dashboard/by-country', [StatisticController::class, 'index'])->name('country.view');
 
+	Route::get('dashboard/{sort}', [StatisticController::class, 'index'])->name('country.view');
 	Route::get('dashboard/by-new_cases/{sort}', [StatisticController::class, 'sortByNewCases'])->name('sort.new_cases');
-	// Route::get('dashboard/by-new_cases', [StatisticController::class, 'sortByNewCases'])->name('sort.new_cases');
 	Route::get('dashboard/by-recovered/{sort}', [StatisticController::class, 'sortByRecovered'])->name('sort.recovered');
-	// Route::get('dashboard/by-recovered', [StatisticController::class, 'sortByRecovered'])->name('sort.recovered');
 	Route::get('dashboard/by-deaths/{sort}', [StatisticController::class, 'sortByDeaths'])->name('sort.deaths');
-	// Route::get('dashboard/by-deaths', [StatisticController::class, 'sortByDeaths'])->name('sort.deaths');
 
 	Route::post('logut', [AuthController::class, 'logout'])->name('logout.user');
 });

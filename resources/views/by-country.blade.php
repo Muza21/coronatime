@@ -6,7 +6,7 @@ use App\Models\Statistic;
         <div class="mt-10">
             <form method="GET" action="#">
                 <input type="text" class="border-2 border-gray-100 rounded-lg pl-10 py-3" name="search"
-                    placeholder="Search by country">
+                    placeholder="Search by country" value="{{ request('search') }}">
             </form>
         </div>
         <main class="rounded-md mt-10 border border-gray-200">
