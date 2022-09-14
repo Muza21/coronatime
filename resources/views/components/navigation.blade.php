@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div class="mx-5 text-xl">
-                    <h3 class="text-xl font-bold">{{ ucwords(Auth::user()->username) }}</h3>
+                    <h3 class="text-xl font-bold">{{ ucwords(auth()->user()->username) }}</h3>
                 </div>
                 <form method="POST" action="{{ route('logout.user') }}">
                     @csrf
