@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CountryController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\StatisticController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,12 +27,9 @@ Route::middleware(['guest'])->group(function () {
 Route::middleware(['auth'])->group(function () {
 	Route::view('dashboard', 'dashboard')->name('dashboard.view');
 
-	Route::get('dashboard/{sort}', [StatisticController::class, 'index'])->name('country.view');
-	Route::get('dashboard/by-new_cases/{sort}', [StatisticController::class, 'sortByNewCases'])->name('sort.new_cases');
-	Route::get('dashboard/by-recovered/{sort}', [StatisticController::class, 'sortByRecovered'])->name('sort.recovered');
-	Route::get('dashboard/by-deaths/{sort}', [StatisticController::class, 'sortByDeaths'])->name('sort.deaths');
+	Route::get('dashboard/{columnName}/{sort}', [CountryController::class, 'sortByColumn'])->name('sort.columns');
 
-	Route::post('logut', [AuthController::class, 'logout'])->name('logout.user');
+	Route::post('logout', [AuthController::class, 'logout'])->name('logout.user');
 });
 
 Route::get('/change-locale/{locale}', [LanguageController::class, 'change'])->name('locale.change');

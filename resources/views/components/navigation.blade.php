@@ -59,7 +59,7 @@
             <a href="{{ route('dashboard.view') }}">Worldwide</a>
         </div>
         <div class="border-b-2 pb-2 border-black ml-10">
-            <a href="{{ route('country.view', ['asc']) }}">Countries</a>
+            <a href="{{ route('sort.columns', ['name', 'asc']) }}">Countries</a>
         </div>
     </div>
     <div>

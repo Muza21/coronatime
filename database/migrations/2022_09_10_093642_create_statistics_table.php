@@ -12,9 +12,9 @@ return new class extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('statistics', function (Blueprint $table) {
+		Schema::create('countries', function (Blueprint $table) {
 			$table->id();
-			$table->string('location')->unique();
+			$table->string('name')->unique();
 			$table->integer('new_cases');
 			$table->integer('deaths');
 			$table->integer('recovered');
@@ -29,6 +29,6 @@ return new class extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('statistics');
+		Schema::dropIfExists('countries');
 	}
 };

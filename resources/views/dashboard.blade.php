@@ -1,5 +1,5 @@
 @php
-use App\Models\Statistic;
+use App\Models\Country;
 @endphp
 <x-navigation>
     <section class="mx-auto">
@@ -21,7 +21,7 @@ use App\Models\Statistic;
 
                             <div>
                                 <h5 class="font-bold text-4xl text-blue-700 items-center mt-8">
-                                    {{ Statistic::all()->sum('new_cases') }}
+                                    {{ Country::all()->sum('new_cases') }}
                                 </h5>
                             </div>
                         </div>
@@ -42,7 +42,7 @@ use App\Models\Statistic;
 
                             <div>
                                 <h5 class="font-bold text-4xl text-green-600 items-center mt-8">
-                                    {{ Statistic::all()->sum('recovered') }}
+                                    {{ Country::all()->sum('recovered') }}
                                 </h5>
                             </div>
                         </div>
@@ -63,7 +63,7 @@ use App\Models\Statistic;
 
                             <div>
                                 <h5 class="font-bold text-4xl text-yellow-300 items-center mt-8">
-                                    {{ Statistic::all()->sum('deaths') }}
+                                    {{ Country::all()->sum('deaths') }}
                                 </h5>
                             </div>
                         </div>
