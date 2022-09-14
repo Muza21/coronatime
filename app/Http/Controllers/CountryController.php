@@ -17,8 +17,7 @@ class CountryController extends Controller
 	{
 		if (request('search'))
 		{
-			$statistic = Country::latest()->where('name', 'like', '%' . request('search') . '%');
-			$countries = $statistic->get();
+			$countries = Country::latest()->where('name', 'like', '%' . request('search') . '%')->get();
 			$sort = request('sort', 'asc');
 			return view('by-country', compact('countries', 'sort'));
 		}
@@ -35,9 +34,9 @@ class CountryController extends Controller
 	public function sumAll(): array
 	{
 		return [
-			'new_cases'        => Country::all()->sum('new_cases'),
-			'recovered'        => Country::all()->sum('recovered'),
-			'deaths'           => Country::all()->sum('deaths'),
+			'new_cases'        => number_format(Country::sum('new_cases')),
+			'recovered'        => number_format(Country::sum('recovered')),
+			'deaths'           => number_format(Country::sum('deaths')),
 		];
 	}
 }
