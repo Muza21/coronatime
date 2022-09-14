@@ -1,6 +1,3 @@
-@php
-use App\Models\Country;
-@endphp
 <x-navigation>
     <section class="mx-auto">
         <div class="mx-10 mt-14">
@@ -11,7 +8,6 @@ use App\Models\Country;
                         <div class="mt-8 flex flex-col items-center justify-between">
                             <div class="h-14">
                                 <img src="/images/Group 1797.svg" alt="chart" class="rounded-xl">
-                                {{-- <x-line-chart /> --}}
                             </div>
 
 
@@ -21,7 +17,7 @@ use App\Models\Country;
 
                             <div>
                                 <h5 class="font-bold text-4xl text-blue-700 items-center mt-8">
-                                    {{ Country::all()->sum('new_cases') }}
+                                    {{ $new_cases }}
                                 </h5>
                             </div>
                         </div>
@@ -42,7 +38,7 @@ use App\Models\Country;
 
                             <div>
                                 <h5 class="font-bold text-4xl text-green-600 items-center mt-8">
-                                    {{ Country::all()->sum('recovered') }}
+                                    {{ $recovered }}
                                 </h5>
                             </div>
                         </div>
@@ -63,7 +59,7 @@ use App\Models\Country;
 
                             <div>
                                 <h5 class="font-bold text-4xl text-yellow-300 items-center mt-8">
-                                    {{ Country::all()->sum('deaths') }}
+                                    {{ $deaths }}
                                 </h5>
                             </div>
                         </div>

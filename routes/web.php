@@ -25,7 +25,7 @@ Route::middleware(['guest'])->group(function () {
 	Route::post('register', [RegisterController::class, 'store'])->name('registration.store');
 });
 Route::middleware(['auth'])->group(function () {
-	Route::view('dashboard', 'dashboard')->name('dashboard.view');
+	Route::get('dashboard', [CountryController::class, 'index'])->name('dashboard.view');
 
 	Route::get('dashboard/{columnName}/{sort}', [CountryController::class, 'sortByColumn'])->name('sort.columns');
 

@@ -1,6 +1,3 @@
-@php
-use App\Models\Country;
-@endphp
 <x-navigation>
     <section class="mx-16">
         <div class="mt-10">
@@ -74,13 +71,13 @@ use App\Models\Country;
                                 Worldwide
                             </th>
                             <td class="py-4 px-6">
-                                {{ Country::all()->sum('new_cases') }}
+                                {{ $new_cases }}
                             </td>
                             <td class="py-4 px-6">
-                                {{ Country::all()->sum('recovered') }}
+                                {{ $recovered }}
                             </td>
                             <td class="py-4 px-6">
-                                {{ Country::all()->sum('deaths') }}
+                                {{ $deaths }}
                             </td>
                         </tr>
                         <tr>
