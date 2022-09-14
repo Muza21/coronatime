@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CountryController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +24,12 @@ Route::middleware(['guest'])->group(function () {
 	Route::view('register', 'register')->name('register.view');
 	Route::post('register', [RegisterController::class, 'store'])->name('registration.store');
 });
+Route::middleware(['auth'])->group(function () {
+	Route::get('dashboard', [CountryController::class, 'index'])->name('dashboard.view');
 
-Route::view('dashboard', 'dashboard')->name('dashboard.view');
+	Route::get('dashboard/{columnName}/{sort}', [CountryController::class, 'sortByColumn'])->name('sort.columns');
+
+	Route::post('logout', [AuthController::class, 'logout'])->name('logout.user');
+});
 
 Route::get('/change-locale/{locale}', [LanguageController::class, 'change'])->name('locale.change');
