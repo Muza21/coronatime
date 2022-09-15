@@ -25,7 +25,7 @@
         stroke-dashoffset: 48;
         stroke-width: 4;
         stroke: #7ac142;
-        animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.3s forwards;
+        animation: stroke cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
     }
 
     @keyframes stroke {

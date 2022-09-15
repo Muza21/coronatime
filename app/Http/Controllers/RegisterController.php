@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserStoreRequest;
+use App\Mail\VerifyMail;
 use App\Models\User;
-use Illuminate\Http\RedirectResponse;
+use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
-	public function store(UserStoreRequest $request): RedirectResponse
+	public function store(UserStoreRequest $request): View
 	{
 		$validated = $request->validated();
 		User::create([
@@ -16,6 +18,7 @@ class RegisterController extends Controller
 			'email'    => $validated['email'],
 			'password' => bcrypt($validated['password']),
 		]);
-		return redirect(route('verify_email.notice'));
+		Mail::to($validated['email'])->send(new VerifyMail());
+		return view('verify-feedback');
 	}
 }

@@ -4,8 +4,6 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\RegisterController;
-use App\Mail\VerifyMail;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,11 +24,6 @@ Route::middleware(['guest'])->group(function () {
 	Route::view('register', 'register')->name('register.view');
 	Route::post('register', [RegisterController::class, 'store'])->name('registration.store');
 });
-
-Route::get('verify', function () {
-	// Mail::to('lasha@gmail.com')->send(new VerifyMail());
-	return view('verify-notice');
-})->name('verify_email.notice');
 
 Route::middleware('auth')->group(function () {
 	Route::get('dashboard', [CountryController::class, 'index'])->name('dashboard.view');

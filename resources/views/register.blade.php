@@ -53,11 +53,6 @@
             @enderror
         </div>
 
-        <div>
-            <input type="checkbox" name="remember">
-            <label for="remember">Remember This Device</label>
-        </div>
-
         <button type="submit"
             class="bg-green-500 text-white text-center uppercase font-semibold text-lg py-4 w-full rounded-xl hover:bg-green-600">
             Sign Up
