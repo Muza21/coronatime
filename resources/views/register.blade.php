@@ -1,7 +1,7 @@
 <x-layout>
 
     <header class="mt-10">
-        <x-logo />
+        <img src="{{ asset('images/Group 1.svg') }}" alt="coronatime">
         <h3 class="text-xl font-bold">Welcome to Coronatime</h3>
         <p class="text-sm text-gray-400">Please enter required info to sign up</p>
     </header>

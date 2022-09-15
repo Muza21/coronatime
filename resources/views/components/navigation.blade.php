@@ -14,7 +14,7 @@
     <div class="border-b border-gray-200 py-6">
         <div class="flex justify-between mx-16">
             <div>
-                <x-logo />
+                <img src="{{ asset('images/Group 1.svg') }}" alt="coronatime">
             </div>
             <div class="flex">
                 <div class="mx-5 text-xl flex">

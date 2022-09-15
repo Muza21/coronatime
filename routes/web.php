@@ -28,9 +28,9 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::get('verify', function () {
-	Mail::to('lasha@gmail.com')->send(new VerifyMail());
-	return new VerifyMail();
-});
+	// Mail::to('lasha@gmail.com')->send(new VerifyMail());
+	return view('verify-notice');
+})->name('verify_email.notice');
 
 Route::middleware('auth')->group(function () {
 	Route::get('dashboard', [CountryController::class, 'index'])->name('dashboard.view');

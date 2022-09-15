@@ -16,6 +16,6 @@ class RegisterController extends Controller
 			'email'    => $validated['email'],
 			'password' => bcrypt($validated['password']),
 		]);
-		return redirect(route('login.view'));
+		return redirect(route('verify_email.notice'));
 	}
 }
