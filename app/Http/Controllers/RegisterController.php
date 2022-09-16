@@ -3,22 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserStoreRequest;
-use App\Mail\VerifyMail;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
 	public function store(UserStoreRequest $request): View
 	{
 		$validated = $request->validated();
-		User::create([
+		$user = User::create([
 			'username' => $validated['username'],
 			'email'    => $validated['email'],
 			'password' => bcrypt($validated['password']),
 		]);
-		Mail::to($validated['email'])->send(new VerifyMail());
+		event(new Registered($user));
+		auth()->login($user);
 		return view('verify-feedback');
 	}
 }
