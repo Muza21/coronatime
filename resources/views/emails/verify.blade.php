@@ -49,9 +49,11 @@
 			<p style="text-align: center;">click this button to verify your email</p>
 		</div>
 		<div>
-			<button>
-				VERIFY EMAIL
-			</button>
+            <a href="{{ $url }}">
+                <button>
+                    VERIFY EMAIL
+                </button>
+            </a>
 		</div>
 	</main>
 </body>

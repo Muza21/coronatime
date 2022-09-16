@@ -6,7 +6,6 @@ use App\Http\Controllers\CountryController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,8 +26,8 @@ Route::middleware(['guest'])->group(function () {
 	Route::post('register', [RegisterController::class, 'store'])->name('registration.store');
 });
 
-Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class,'verifyEmail'])->middleware(['auth', 'signed'])->name('verification.verify');
-Route::view('verify', 'verify-feedback')->name('verification.notice');
+Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class, 'verifyEmail'])->middleware(['auth', 'signed'])->name('verification.verify');
+Route::view('/email/verify', 'verify-notice')->name('verification.notice');
 
 Route::middleware(['auth', 'verified'])->group(function () {
 	Route::get('dashboard', [CountryController::class, 'index'])->name('dashboard.view');

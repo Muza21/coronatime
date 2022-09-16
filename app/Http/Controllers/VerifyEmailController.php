@@ -10,6 +10,6 @@ class VerifyEmailController extends Controller
 	public function verifyEmail(EmailVerificationRequest $request): RedirectResponse
 	{
 		$request->fulfill();
-		return redirect(route('login.view'));
+		return redirect(route('dashboard.view'));
 	}
 }
