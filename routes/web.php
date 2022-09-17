@@ -4,6 +4,7 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,8 +24,14 @@ Route::middleware(['guest'])->group(function () {
 
 	Route::view('register', 'register')->name('register.view');
 	Route::post('register', [RegisterController::class, 'store'])->name('registration.store');
+
 });
-Route::middleware(['auth'])->group(function () {
+Route::view('confirmed', 'confirmed')->name('email.confirmed');
+
+Route::get('/email/verify/{id}/{token}', [VerifyEmailController::class, 'verifyEmail'])->name('verification.verify');
+Route::view('/email/verify', 'verify-notice')->name('verification.notice');
+
+Route::middleware(['auth', 'verified'])->group(function () {
 	Route::get('dashboard', [CountryController::class, 'index'])->name('dashboard.view');
 
 	Route::get('dashboard/{columnName}/{sort}', [CountryController::class, 'sortByColumn'])->name('sort.columns');
