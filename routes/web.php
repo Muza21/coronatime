@@ -24,9 +24,11 @@ Route::middleware(['guest'])->group(function () {
 
 	Route::view('register', 'register')->name('register.view');
 	Route::post('register', [RegisterController::class, 'store'])->name('registration.store');
-});
 
-Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class, 'verifyEmail'])->middleware(['auth', 'signed'])->name('verification.verify');
+});
+Route::view('confirmed', 'confirmed')->name('email.confirmed');
+
+Route::get('/email/verify/{id}/{token}', [VerifyEmailController::class, 'verifyEmail'])->name('verification.verify');
 Route::view('/email/verify', 'verify-notice')->name('verification.notice');
 
 Route::middleware(['auth', 'verified'])->group(function () {

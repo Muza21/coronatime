@@ -49,7 +49,7 @@
 			<p style="text-align: center;">click this button to verify your email</p>
 		</div>
 		<div>
-            <a href="{{ $url }}">
+            <a href="{{ route('verification.verify', [$data['id'] ,$data['token']]) }}">
                 <button>
                     VERIFY EMAIL
                 </button>

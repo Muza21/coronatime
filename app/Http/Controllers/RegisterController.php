@@ -18,9 +18,16 @@ class RegisterController extends Controller
 			'email'    => $validated['email'],
 			'password' => bcrypt($validated['password']),
 		]);
+		if ($user != null)
+		{
+			$data = [
+				'id'           => $user->id,
+				'token'        => sha1($user->email),
+			];
+		}
 		// $user->sendEmailVerificationNotification();
-		Mail::to($user->email)->send(new VerifyMail($user));
-		auth()->login($user);
+		Mail::to($user->email)->send(new VerifyMail($data));
+		// auth()->login($user);s
 		return redirect(route('verification.notice'));
 	}
 }
