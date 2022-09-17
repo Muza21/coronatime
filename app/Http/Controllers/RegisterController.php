@@ -25,9 +25,7 @@ class RegisterController extends Controller
 				'token'        => sha1($user->email),
 			];
 		}
-		// $user->sendEmailVerificationNotification();
 		Mail::to($user->email)->send(new VerifyMail($data));
-		// auth()->login($user);s
 		return redirect(route('verification.notice'));
 	}
 }
