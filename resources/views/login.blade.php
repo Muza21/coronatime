@@ -15,12 +15,15 @@
             <input class="border border-gray-400 p-2 w-full rounded-xl" type="text" name="username" id="username"
                 value="{{ old('username') }}" required>
 
+            {{-- @if ($error->has('username') || $error->has('email'))
+                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+            @endif --}}
             @error('username')
                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
             @enderror
         </div>
 
-        <div class="mb-5">
+        {{-- <div class="mb-5">
             <label for="email">email</label>
 
             <input class="border border-gray-400 p-2 w-full rounded-xl" type="email" name="email" id="email"
@@ -29,7 +32,7 @@
             @error('email')
                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
             @enderror
-        </div>
+        </div> --}}
 
         <div class="mb-6">
             <label for="password">password</label>
