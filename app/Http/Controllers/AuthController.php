@@ -13,15 +13,19 @@ class AuthController extends Controller
 	{
 		$validation = $request->validated();
 		$fieldType = filter_var($validation['username'], FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
-		// if (auth()->attempt($validation))
-		if (auth()->attempt([$fieldType => $validation['username'], 'password' => $validation['password']]))
+		$remember = false;
+		if (isset(request()->remember))
+		{
+			$remember = true;
+		}
+		if (auth()->attempt([$fieldType => $validation['username'], 'password' => $validation['password']], $remember))
 		{
 			return redirect(route('dashboard.view'));
 		}
 		else
 		{
 			throw ValidationException::withMessages([
-				'username' => 'Your email is not found.',
+				'username' => 'Your credentials is not found.',
 			]);
 		}
 	}
