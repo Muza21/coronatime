@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
@@ -12,14 +13,19 @@ class AuthController extends Controller
 	public function login(LoginRequest $request): RedirectResponse
 	{
 		$validation = $request->validated();
-		if (auth()->attempt($validation))
+		$getEmailOrUsername = filter_var($validation['username'], FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+
+		if (auth()->attempt([$getEmailOrUsername => $validation['username'], 'password' => $validation['password']], isset($validation['remember'])))
 		{
-			return redirect(route('dashboard.view'));
+			if (User::where($getEmailOrUsername, $validation['username'])->first()->email_verified_at)
+			{
+				return redirect(route('dashboard.view'));
+			}
 		}
 		else
 		{
 			throw ValidationException::withMessages([
-				'email'=> 'Your email is not found.',
+				'username' => 'Your credentials is not found.',
 			]);
 		}
 	}

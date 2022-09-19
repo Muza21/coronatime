@@ -20,17 +20,6 @@
             @enderror
         </div>
 
-        <div class="mb-5">
-            <label for="email">email</label>
-
-            <input class="border border-gray-400 p-2 w-full rounded-xl" type="email" name="email" id="email"
-                value="{{ old('email') }}" required>
-
-            @error('email')
-                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-            @enderror
-        </div>
-
         <div class="mb-6">
             <label for="password">password</label>
 
@@ -48,7 +37,7 @@
                 <label for="remember">Remember This Device</label>
             </div>
             <div>
-                <a href="#">Forgot password?</a>
+                <a href="{{ route('password.request') }}">Forgot password?</a>
             </div>
         </div>
 
