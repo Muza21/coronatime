@@ -6,7 +6,6 @@ use App\Http\Controllers\CountryController;
 use App\Http\Controllers\PasswordResetController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\VerifyEmailController;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,25 +37,6 @@ Route::view('confirmed', 'confirmed')->name('email.confirmed');
 
 Route::get('/email/verify/{id}/{token}', [VerifyEmailController::class, 'verifyEmail'])->name('verification.verify');
 Route::view('/email/verify', 'verify-notice')->name('verification.notice');
-
-// Route::get('countries', function () {
-// 	$countries = Http::get('https://devtest.ge/countries')->object();
-// 	dd($countries[0]->code);
-// 	$stats = Http::post('https://devtest.ge/get-country-statistics', [
-// 		'code' => 'GE',
-// 	]);
-// 	foreach ($countries as $country)
-// 	{
-// 	}
-// 	dd($stats->object());
-// 	return $countries->failed();
-// 	return $response->json($key = null);
-// })->name('fetch.data');
-// Route::get('/get-country-statistics', function () {
-// 	$response = Http::post('https://devtest.ge//get-country-statistics');
-// 	return $response;
-// })->name('fetch.data');
-// Route::get('countries', [CountryController::class, 'fetchData'])->name('fetch.data');
 
 Route::middleware(['auth', 'verified'])->group(function () {
 	Route::get('dashboard', [CountryController::class, 'index'])->name('dashboard.view');
