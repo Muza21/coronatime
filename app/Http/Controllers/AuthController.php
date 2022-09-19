@@ -13,11 +13,11 @@ class AuthController extends Controller
 	public function login(LoginRequest $request): RedirectResponse
 	{
 		$validation = $request->validated();
-		$fieldType = filter_var($validation['username'], FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+		$getEmailOrUsername = filter_var($validation['username'], FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 
-		if (auth()->attempt([$fieldType => $validation['username'], 'password' => $validation['password']], isset(request()->remember)))
+		if (auth()->attempt([$getEmailOrUsername => $validation['username'], 'password' => $validation['password']], isset($validation['remember'])))
 		{
-			if (User::where($fieldType, $validation['username'])->first()->email_verified_at)
+			if (User::where($getEmailOrUsername, $validation['username'])->first()->email_verified_at)
 			{
 				return redirect(route('dashboard.view'));
 			}
