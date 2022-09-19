@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
@@ -13,14 +14,13 @@ class AuthController extends Controller
 	{
 		$validation = $request->validated();
 		$fieldType = filter_var($validation['username'], FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
-		$remember = false;
-		if (isset(request()->remember))
+
+		if (auth()->attempt([$fieldType => $validation['username'], 'password' => $validation['password']], isset(request()->remember)))
 		{
-			$remember = true;
-		}
-		if (auth()->attempt([$fieldType => $validation['username'], 'password' => $validation['password']], $remember))
-		{
-			return redirect(route('dashboard.view'));
+			if (User::where($fieldType, $validation['username'])->first()->email_verified_at)
+			{
+				return redirect(route('dashboard.view'));
+			}
 		}
 		else
 		{
