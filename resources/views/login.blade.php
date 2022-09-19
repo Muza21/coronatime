@@ -37,7 +37,7 @@
                 <label for="remember">Remember This Device</label>
             </div>
             <div>
-                <a href="#">Forgot password?</a>
+                <a href="{{ route('password.request') }}">Forgot password?</a>
             </div>
         </div>
 

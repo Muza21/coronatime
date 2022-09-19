@@ -3,6 +3,7 @@
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\PasswordResetController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
@@ -25,7 +26,13 @@ Route::middleware(['guest'])->group(function () {
 	Route::view('register', 'register')->name('register.view');
 	Route::post('register', [RegisterController::class, 'store'])->name('registration.store');
 
+	Route::view('/forgot-password', 'forgot-password')->name('password.request');
+	Route::post('/forgot-password', [PasswordResetController::class, 'sendResetLink'])->name('password.email');
+	Route::get('/reset-password/{token}', [PasswordResetController::class, 'reset'])->name('password.reset');
+	Route::post('/reset-password', [PasswordResetController::class, 'update'])->name('password.update');
 });
+Route::view('notice', 'reset-notice')->name('reset.notice');
+
 Route::view('confirmed', 'confirmed')->name('email.confirmed');
 
 Route::get('/email/verify/{id}/{token}', [VerifyEmailController::class, 'verifyEmail'])->name('verification.verify');
