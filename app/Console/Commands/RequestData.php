@@ -35,7 +35,6 @@ class RequestData extends Command
 			$stats = Http::post('https://devtest.ge/get-country-statistics', [
 				'code' => $country->code,
 			]);
-			// dd($stats['code']);
 			Country::updateOrCreate([
 				'code'        => $stats['code'],
 				'name'        => $stats['country'],
