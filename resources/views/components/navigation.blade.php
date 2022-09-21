@@ -23,7 +23,7 @@
                         <div @click="show = !show">
                             <button class="pl-3 pr-6 w-full lg:w-28 text-left flex lg:inline-flex">
 
-                                {{ 'en' === app()->currentLocale() ? 'English' : 'Georgian' }}
+                                {{ 'en' === app()->currentLocale() ? __('dashboard.english') : __('dashboard.georgian') }}
 
                                 <x-icon name="down-arrow" class="absolute pointer-events-none"
                                     style="right: 0px; top:4px" />
@@ -34,10 +34,10 @@
                             class="py-2 absolute bg-gray-100 w-full rounded-xl z-50 overflow-auto max-h-52"
                             style="display: none">
                             <x-dropdown-item href="{{ route('locale.change', 'en') }}">
-                                English
+                                {{ __('dashboard.english') }}
                             </x-dropdown-item>
                             <x-dropdown-item href="{{ route('locale.change', 'ka') }}">
-                                Georgian
+                                {{ __('dashboard.georgian') }}
                             </x-dropdown-item>
                         </div>
                     </div>
@@ -48,23 +48,13 @@
                 <form method="POST" action="{{ route('logout.user') }}">
                     @csrf
                     <div class="pl-5 border-l border-gray-200 text-xl">
-                        <button type="submit">Log Out</button>
+                        <button type="submit">{{ __('dashboard.log_out') }}</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    <div class="mx-16 flex border-b border-gray-200 mt-10">
-        <div class="border-b-2 pb-2 border-black ">
-            <a href="{{ route('dashboard.view') }}">Worldwide</a>
-        </div>
-        <div class="border-b-2 pb-2 border-black ml-10">
-            <a href="{{ route('sort.columns', ['name', 'asc']) }}">Countries</a>
-        </div>
-    </div>
-    <div>
-        {{ $slot }}
-    </div>
+    {{ $slot }}
 </body>
 
 </html>

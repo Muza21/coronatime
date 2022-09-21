@@ -29,19 +29,27 @@ class RequestData extends Command
 	 */
 	public function handle()
 	{
-		$countries = Http::get('https://devtest.ge/countries')->object();
+		$countries = Http::withHeaders([
+			'Accept'       => 'application/json', ])->get('https://devtest.ge/countries')->json();
 		foreach ($countries as $country)
 		{
-			$stats = Http::post('https://devtest.ge/get-country-statistics', [
-				'code' => $country->code,
-			]);
-			Country::updateOrCreate([
-				'code'        => $stats['code'],
-				'name'        => $stats['country'],
-				'new_cases'   => $stats['confirmed'],
-				'recovered'   => $stats['recovered'],
-				'deaths'      => $stats['deaths'],
-			]);
+			$stats = Http::withHeaders([
+				'Accept'       => 'application/json',
+				'Content-Type' => 'application/json', ])->post('https://devtest.ge/get-country-statistics', [
+					'code' => $country['code'],
+				])->json();
+			Country::updateOrCreate(
+				[
+					'id'           => $stats['id'],
+				],
+				[
+					'code'         => $stats['code'],
+					'name'         => $country['name'],
+					'new_cases'    => $stats['confirmed'],
+					'recovered'    => $stats['recovered'],
+					'deaths'       => $stats['deaths'],
+				],
+			);
 		}
 		return 0;
 	}

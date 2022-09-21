@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Country;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 
 class CountryController extends Controller
@@ -15,6 +16,12 @@ class CountryController extends Controller
 
 	public function sortByColumn($columnName): View
 	{
+		// dd(App::currentLocale());
+		$test = Country::find(1);
+		// $countries = json_decode(, true);
+		ddd($test);
+		// Country::find(1)->name = $manage;
+		// Country::find(1)->save();
 		if (request('search'))
 		{
 			$countries = Country::latest()->where('name', 'like', '%' . request('search') . '%')->get();
