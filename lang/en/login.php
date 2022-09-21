@@ -12,4 +12,7 @@ return [
 	'sign_up_for_free'                                  => 'Sign up for free',
 	'enter_unique_username_or_email'                    => 'Enter unique username or email',
 	'fill_in_password'                                  => 'Fill in password',
+
+	'reset_password'                              => 'Reset Password',
+	'email'                                       => 'Email',
 ];

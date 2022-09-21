@@ -14,4 +14,7 @@ return [
 	'enter_unique_username'                                                     => 'შეიყვანეთ მომხმარებლის სახელი',
 	'enter_your_email'                                                          => 'შეიყვანეთ ელ-ფოსტა',
 	'fill_in_password'                                                          => 'შეიყვანეთ პაროლი',
+
+	'save_changes'                                                              => 'ცვლილებების შენახვა',
+	'new_password'                                                              => 'ახალი პაროლი',
 ];

@@ -14,4 +14,7 @@ return [
 	'enter_unique_username'                                                     => 'Enter unique username',
 	'enter_your_email'                                                          => 'Enter your email',
 	'fill_in_password'                                                          => 'Fill in password',
+
+	'save_changes'                                                              => 'Save Changes',
+	'new_password'                                                              => 'New password',
 ];

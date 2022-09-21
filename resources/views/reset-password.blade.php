@@ -3,7 +3,7 @@
         @csrf
 
         <div class="mt-14 mb-6">
-            <label for="password" class="font-bold">New password</label>
+            <label for="password" class="font-bold">{{ __('register.new_password') }}</label>
 
             <input class="border border-gray-400 p-2 w-full rounded-xl" type="password" name="password" id="password"
                 required>
@@ -14,7 +14,7 @@
         </div>
 
         <div class="mb-10">
-            <label for="password_confirmation" class="font-bold">Repeat password</label>
+            <label for="password_confirmation" class="font-bold">{{ __('register.repeat_password') }}</label>
 
             <input class="border border-gray-400 p-2 w-full rounded-xl" type="password" name="password_confirmation"
                 id="password_confirmation" required>
@@ -31,7 +31,7 @@
 
         <button type="submit"
             class="bg-green-500 text-white text-center uppercase font-semibold text-lg py-4 w-full rounded-xl hover:bg-green-600">
-            Save Changes
+            {{ __('register.save_changes') }}
         </button>
 
     </form>

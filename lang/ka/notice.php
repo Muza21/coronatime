@@ -1,10 +1,10 @@
 <?php
 
 return [
-	'click_this_button_password'                                                => 'click this button to recover a password',
-	'recover_password'                                                          => 'RECOVER PASSWORD',
+	'recover_password_link'  => 'ჩვენ გამოგიგზავნეთ პაროლის აღდგენის ლინკი',
+	'verify_email_link'      => 'ჩვენ გამოგიგზავნეთ ელ-ფოსტის ვერიფიკაციის ლინკი',
 
-	'confirmation_email'                                                      => 'Confirmation email',
-	'click_this_button_email'                                                 => 'click this button to verify your email',
-	'verify_email'                                                            => 'VERIFY EMAIL',
+	'sign_in'                     => 'შესვლა',
+	'your_password_is_recovered'  => 'თქვენი პაროლი აღდგენილია, შეგიძლიათ შესვლა',
+	'your_account_is_confirmed'   => 'თქვენი ექაუნთი დადსტურდა, შეგიძლიათ შესვლა',
 ];

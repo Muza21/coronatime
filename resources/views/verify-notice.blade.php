@@ -1,3 +1,3 @@
 <x-notice-layout>
-    <p class="text-lg">We have sent you a verification email</p>
+    <p class="text-lg">{{ __('notice.verify_email_link') }}</p>
 </x-notice-layout>

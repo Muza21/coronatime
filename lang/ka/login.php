@@ -12,4 +12,7 @@ return [
 	'sign_up_for_free'                                  => 'დარეგისტრირდი უფასოდ',
 	'enter_unique_username_or_email'                    => 'შეიყვანე მომხმარებლის სახელი ან ელ-ფოსტა',
 	'fill_in_password'                                  => 'შეიყვანე პაროლი',
+
+	'reset_password'                              => 'პაროლის აღდგენა',
+	'email'                                       => 'ელ-ფოსტა',
 ];
