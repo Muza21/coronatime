@@ -49,7 +49,7 @@
             <img src="{{ asset('images/Landing (Worldwide) 2.png') }}" alt="coronatime">
             <br><br>
             <p style="text-align: center; font-weight: 700;">{{ __('mailable.recover_password') }}</p>
-            <p style="text-align: center;">{{ __('mailable.click_this_button') }}</p>
+            <p style="text-align: center;">{{ __('mailable.click_this_button_password') }}</p>
         </div>
         <div>
             <a href="{{ route('password.reset', [$data['token'] . '?email=' . $data['email']]) }}">

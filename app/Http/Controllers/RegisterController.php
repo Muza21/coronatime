@@ -6,6 +6,7 @@ use App\Http\Requests\UserStoreRequest;
 use App\Mail\VerifyMail;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
@@ -25,7 +26,9 @@ class RegisterController extends Controller
 				'token'        => sha1($user->email),
 			];
 		}
-		Mail::to($user->email)->locale('ka')->send(new VerifyMail($data));
+		Mail::to($user->email)->locale(App::currentLocale())->send(
+			new VerifyMail($data)
+		);
 		return redirect(route('verification.notice'));
 	}
 }
