@@ -32,6 +32,9 @@
         font-weight: 700;
         color: #ffffff;
         --tw-bg-opacity: 1;
+        outline: none;
+        border: none;
+        cursor: pointer;
         background-color: rgb(34 197 94 / var(--tw-bg-opacity));
     }
 
