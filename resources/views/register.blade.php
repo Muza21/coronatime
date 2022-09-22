@@ -1,15 +1,11 @@
 <x-layout>
-
-    <header class="mt-10">
-        <img src="{{ asset('images/Group 1.svg') }}" alt="coronatime">
-        <h3 class="text-xl font-bold">{{ __('register.welcome_to_coronatime') }}</h3>
-        <p class="text-sm text-gray-400">{{ __('register.enter_your_details') }}</p>
-    </header>
-
     <form method="POST" action="{{ route('registration.store') }}">
         @csrf
 
-        <div class="mb-5">
+        <img src="{{ asset('images/Group 1.svg') }}" alt="coronatime">
+        <h3 class="text-xl font-bold mt-10">{{ __('register.welcome_to_coronatime') }}</h3>
+        <p class="text-sm text-gray-400 mt-5">{{ __('register.enter_your_details') }}</p>
+        <div class="my-5 max-w-sm">
             <label for="username">{{ __('register.username') }}</label>
 
             <input class="border border-gray-400 p-2 w-full rounded-xl" type="text" name="username" id="username"
@@ -20,7 +16,7 @@
             @enderror
         </div>
 
-        <div class="mb-5">
+        <div class="mb-5 max-w-sm">
             <label for="email">{{ __('register.email') }}</label>
 
             <input class="border border-gray-400 p-2 w-full rounded-xl" type="email" name="email" id="email"
@@ -31,7 +27,7 @@
             @enderror
         </div>
 
-        <div class="mb-6">
+        <div class="mb-6 max-w-sm">
             <label for="password">{{ __('register.password') }}</label>
 
             <input class="border border-gray-400 p-2 w-full rounded-xl" type="password" name="password" id="password"
@@ -42,7 +38,7 @@
             @enderror
         </div>
 
-        <div class="mb-6">
+        <div class="mb-6 max-w-sm">
             <label for="password_confirmation">{{ __('register.repeat_password') }}</label>
 
             <input class="border border-gray-400 p-2 w-full rounded-xl" type="password" name="password_confirmation"
@@ -54,14 +50,13 @@
         </div>
 
         <button type="submit"
-            class="bg-green-500 text-white text-center uppercase font-semibold text-lg py-4 w-full rounded-xl hover:bg-green-600">
+            class="bg-green-500 text-white text-center max-w-sm uppercase font-semibold text-lg py-4 w-full rounded-xl hover:bg-green-600">
             {{ __('register.sign_up') }}
         </button>
 
-        <div class="text-center">
+        <div class="text-center max-w-sm">
             <p>{{ __('register.already_have_an_account') }} <a href="{{ route('login.view') }}"
                     class="font-bold">{{ __('register.login') }}</a></p>
         </div>
-
     </form>
 </x-layout>
