@@ -29,7 +29,8 @@ class RequestData extends Command
 	 */
 	public function handle()
 	{
-		$countries = Http::acceptJson()->get('https://devtest.ge/countries')->json();
+		$countries = http::get('https://devtest.ge/countries')->collect();
+
 		foreach ($countries as $country)
 		{
 			$stats = Http::withHeaders([
