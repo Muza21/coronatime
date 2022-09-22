@@ -29,8 +29,7 @@ class RequestData extends Command
 	 */
 	public function handle()
 	{
-		$countries = Http::withHeaders([
-			'Accept'       => 'application/json', ])->get('https://devtest.ge/countries')->json();
+		$countries = Http::acceptJson()->get('https://devtest.ge/countries')->json();
 		foreach ($countries as $country)
 		{
 			$stats = Http::withHeaders([
@@ -51,6 +50,5 @@ class RequestData extends Command
 				],
 			);
 		}
-		return 0;
 	}
 }
