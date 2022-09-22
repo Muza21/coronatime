@@ -58,13 +58,13 @@
             </svg>
         </div>
         <div class="mt-6 text-center">
-            <p class="text-lg">Your Account is confirmed, You can sign in</p>
+            <p class="text-lg">{{ __('notice.your_account_is_confirmed') }}</p>
         </div>
         <div class="mt-6 m-auto">
             <a href="{{ route('login.view') }}">
                 <button
                     class="bg-green-500 py-4 w-full text-white text-center uppercase font-semibold text-lg rounded-xl hover:bg-green-600">
-                    Sign In
+                    {{ __('notice.sign_in') }}
                 </button>
             </a>
         </div>

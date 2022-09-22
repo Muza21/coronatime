@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Country;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\DB;
 
 class CountryController extends Controller
 {
@@ -19,7 +18,7 @@ class CountryController extends Controller
 		{
 			$countries = Country::latest()->where('name', 'like', '%' . request('search') . '%')->get();
 			$sort = request('sort', 'asc');
-			return view('by-country', compact('countries', 'sort'));
+			return view('by-country', compact('countries', 'sort'), $this->sumAll());
 		}
 		$countries = $this->sortBy($columnName, request('sort', 'asc'));
 		return view('by-country', $countries, $this->sumAll());
@@ -27,7 +26,7 @@ class CountryController extends Controller
 
 	public function sortBy(string $columnName, $sort): array
 	{
-		$countries = DB::table('countries')->orderBy($columnName, $sort)->get();
+		$countries = Country::all()->sortBy($columnName, ($columnName == 'name' ? SORT_LOCALE_STRING : SORT_REGULAR), $sort === 'asc');
 		return compact('countries', 'sort');
 	}
 

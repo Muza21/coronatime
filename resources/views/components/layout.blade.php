@@ -11,7 +11,7 @@
 
 <body class="flex">
 
-    <div class="mx-auto">
+    <div class="mx-auto max-w-sm">
         {{ $slot }}
     </div>
     <div class="max-w-xl max-h-screen ml-auto ">

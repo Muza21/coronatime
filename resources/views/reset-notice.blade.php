@@ -1,3 +1,3 @@
 <x-notice-layout>
-    <p class="text-lg">We have sent you a recover password link</p>
+    <p class="text-lg">{{ __('notice.recover_password_link') }}</p>
 </x-notice-layout>

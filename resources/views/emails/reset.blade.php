@@ -32,6 +32,9 @@
         font-weight: 700;
         color: #ffffff;
         --tw-bg-opacity: 1;
+        outline: none;
+        border: none;
+        cursor: pointer;
         background-color: rgb(34 197 94 / var(--tw-bg-opacity));
     }
 
@@ -45,13 +48,13 @@
         <div>
             <img src="{{ asset('images/Landing (Worldwide) 2.png') }}" alt="coronatime">
             <br><br>
-            <p style="text-align: center; font-weight: 700;">Recover password</p>
-            <p style="text-align: center;">click this button to recover a password</p>
+            <p style="text-align: center; font-weight: 700;">{{ __('mailable.recover_password') }}</p>
+            <p style="text-align: center;">{{ __('mailable.click_this_button_password') }}</p>
         </div>
         <div>
             <a href="{{ route('password.reset', [$data['token'] . '?email=' . $data['email']]) }}">
                 <button>
-                    RECOVER PASSWORD
+                    {{ __('mailable.recover_password') }}
                 </button>
             </a>
         </div>
