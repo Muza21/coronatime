@@ -1,18 +1,22 @@
 <x-navigation>
-    <div class="mx-16">{{ __('dashboard.worldwide_statistics') }}</div>
-    <div class="mx-16 flex border-b border-gray-200 mt-10">
-        <div class="border-b-2 pb-2 border-black ">
-            <a href="{{ route('dashboard.view') }}">{{ __('dashboard.worldwide') }}</a>
+    <div class="mx-4 md:mx-16 text-2xl font-extrabold">{{ __('dashboard.worldwide_statistics') }}</div>
+    <div class="mx-4 md:mx-16 flex border-b border-gray-200 mt-10">
+        <div class="pb-2">
+            <x-active href="{{ route('dashboard.view') }}" :active="request()->routeIs('dashboard.view')">
+                {{ __('dashboard.worldwide') }}
+            </x-active>
         </div>
-        <div class="border-b-2 pb-2 border-black ml-10">
-            <a href="{{ route('sort.columns', ['name', 'asc']) }}">{{ __('dashboard.countries') }}</a>
+        <div class="pb-2 ml-10">
+            <x-active href="{{ route('sort.columns', ['name', 'asc']) }}" :active="request()->routeIs('sort.columns')">
+                {{ __('dashboard.countries') }}
+            </x-active>
         </div>
     </div>
     <div>
         <section class="mx-auto">
-            <div class="mx-10 mt-14">
-                <div class="lg:grid lg:grid-cols-3 mt-20">
-                    <div class='bg-blue-50 hover:bg-blue-100 border rounded-xl mx-5'>
+            <div class="md:mx-10 mt-14">
+                <div class="grid grid-cols-2 md:grid-cols-3 mt-20 mb-10">
+                    <div class='bg-blue-50 hover:bg-blue-100 col-span-2 md:col-span-1 border rounded-xl ml-5 mr-5 mt-4'>
                         <div class="py-6 px-5">
                             <div class="mt-8 flex flex-col items-center justify-between">
                                 <div class="h-14">
@@ -33,7 +37,7 @@
                         </div>
                     </div>
 
-                    <div class='bg-green-50 hover:bg-green-100 border rounded-xl mx-5'>
+                    <div class='bg-green-50 hover:bg-green-100 border rounded-xl ml-5 mr-2 mt-4'>
                         <div class="py-6 px-5">
                             <div class="mt-8 flex flex-col items-center justify-between">
                                 <div class="h-14">
@@ -54,7 +58,7 @@
                         </div>
                     </div>
 
-                    <div class='bg-yellow-50 hover:bg-yellow-100 border rounded-xl mx-5'>
+                    <div class='bg-yellow-50 hover:bg-yellow-100 border rounded-xl ml-2 mr-5 mt-4'>
                         <div class="py-6 px-5">
                             <div class="mt-8 flex flex-col items-center justify-between">
                                 <div class="h-14">

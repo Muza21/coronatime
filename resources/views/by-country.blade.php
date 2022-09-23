@@ -1,11 +1,15 @@
 <x-navigation>
     <div class="mx-16">{{ __('dashboard.statistics_by_country') }}</div>
     <div class="mx-16 flex border-b border-gray-200 mt-10">
-        <div class="border-b-2 pb-2 border-black ">
-            <a href="{{ route('dashboard.view') }}">{{ __('dashboard.worldwide') }}</a>
+        <div class="pb-2">
+            <x-active href="{{ route('dashboard.view') }}" :active="request()->routeIs('dashboard.view')">
+                {{ __('dashboard.worldwide') }}
+            </x-active>
         </div>
-        <div class="border-b-2 pb-2 border-black ml-10">
-            <a href="{{ route('sort.columns', ['name', 'asc']) }}">{{ __('dashboard.countries') }}</a>
+        <div class="pb-2 ml-10">
+            <x-active href="{{ route('sort.columns', ['name', 'asc']) }}" :active="request()->routeIs('sort.columns')">
+                {{ __('dashboard.countries') }}
+            </x-active>
         </div>
     </div>
     <div>

@@ -47,5 +47,3 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 Route::get('/change-locale/{locale}', [LanguageController::class, 'change'])->name('locale.change');
-
-Route::view('test', 'test-view')->name('test.index');
