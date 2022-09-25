@@ -54,7 +54,7 @@ and also:
 npm run dev
 ```
 in order to build your JS/SaaS resources.
-```
+
 
 
 4\. Now we need to set our env file. Go to the root of your project and execute this command.
