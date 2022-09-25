@@ -29,7 +29,7 @@ class AuthController extends Controller
 		else
 		{
 			throw ValidationException::withMessages([
-				'username' => 'Your credentials is not found.',
+				'password' => 'Password did not match',
 			]);
 		}
 	}

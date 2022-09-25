@@ -3,7 +3,7 @@
 @php
 $classes = 'p-3 border-2 border-2 border-gray-800 text-center rounded-full';
 if ($active) {
-    $classes .= ' text-white font-bold bg-slate-600 ';
+    $classes .= ' text-blue-700 font-bold bg-gray-300 ';
 }
 @endphp
 
