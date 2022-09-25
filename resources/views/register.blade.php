@@ -1,67 +1,70 @@
 <x-layout>
-
-    <header class="mt-10">
+    <div class="max-w-md mx-auto">
         <img src="{{ asset('images/Group 1.svg') }}" alt="coronatime">
-        <h3 class="text-xl font-bold">{{ __('register.welcome_to_coronatime') }}</h3>
-        <p class="text-sm text-gray-400">{{ __('register.enter_your_details') }}</p>
-    </header>
+        <h3 class="text-xl font-bold mt-10">{{ __('register.welcome_to_coronatime') }}</h3>
+        <p class="text-sm text-gray-400 mt-5">{{ __('register.enter_your_details') }}</p>
+    </div>
 
-    <form method="POST" action="{{ route('registration.store') }}">
+    <form method="POST" action="{{ route('registration.store') }}" class="max-w-md mx-auto mt-8 mb-0 space-y-4">
         @csrf
+        <div>
+            <label for="Username">{{ __('register.username') }}</label>
 
-        <div class="mb-5">
-            <label for="username">{{ __('register.username') }}</label>
-
-            <input class="border border-gray-400 p-2 w-full rounded-xl" type="text" name="username" id="username"
-                value="{{ old('username') }}" placeholder="{{ __('register.enter_unique_username') }}" required>
-            <label for="username" class="text-gray-400">{{ __('register.username_should_be_unique') }}</label>
+            <div class="relative">
+                <input class="w-full p-4 pr-12 text-sm border-gray-400 rounded-lg shadow-md" type="text"
+                    name="username" id="username" value="{{ old('username') }}"
+                    placeholder="{{ __('register.enter_unique_username') }}" required>
+                <label for="username" class="text-gray-400">{{ __('register.username_should_be_unique') }}</label>
+            </div>
             @error('username')
                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
             @enderror
         </div>
 
-        <div class="mb-5">
-            <label for="email">{{ __('register.email') }}</label>
-
-            <input class="border border-gray-400 p-2 w-full rounded-xl" type="email" name="email" id="email"
-                value="{{ old('email') }}" placeholder="{{ __('register.enter_your_email') }}" required>
-
+        <div>
+            <label for="password">{{ __('register.email') }}</label>
+            <div class="relative">
+                <input class="w-full p-4 pr-12 text-sm border-gray-400 rounded-lg shadow-md" type="email"
+                    name="email" id="email" value="{{ old('email') }}"
+                    placeholder="{{ __('register.enter_your_email') }}" required>
+            </div>
             @error('email')
                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
             @enderror
         </div>
 
-        <div class="mb-6">
+        <div>
             <label for="password">{{ __('register.password') }}</label>
-
-            <input class="border border-gray-400 p-2 w-full rounded-xl" type="password" name="password" id="password"
-                placeholder="{{ __('register.fill_in_password') }}" required>
-
+            <div class="relative">
+                <input class="w-full p-4 pr-12 text-sm border-gray-400 rounded-lg shadow-md" type="password"
+                    name="password" id="password" placeholder="{{ __('register.fill_in_password') }}" required>
+            </div>
             @error('password')
                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
             @enderror
         </div>
 
-        <div class="mb-6">
+        <div>
             <label for="password_confirmation">{{ __('register.repeat_password') }}</label>
-
-            <input class="border border-gray-400 p-2 w-full rounded-xl" type="password" name="password_confirmation"
-                id="password_confirmation" placeholder="{{ __('register.repeat_password') }}" required>
-
+            <div class="relative">
+                <input class="w-full p-4 pr-12 text-sm border-gray-400 rounded-lg shadow-md" type="password"
+                    name="password_confirmation" id="password_confirmation"
+                    placeholder="{{ __('register.repeat_password') }}" required>
+            </div>
             @error('password_confirmation')
                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
             @enderror
         </div>
 
         <button type="submit"
-            class="bg-green-500 text-white text-center uppercase font-semibold text-lg py-4 w-full rounded-xl hover:bg-green-600">
+            class="bg-green-500 text-white text-center max-w-md uppercase font-semibold text-lg py-4 w-full rounded-xl hover:bg-green-600">
             {{ __('register.sign_up') }}
         </button>
 
-        <div class="text-center">
+        <div class="text-center max-w-md">
             <p>{{ __('register.already_have_an_account') }} <a href="{{ route('login.view') }}"
                     class="font-bold">{{ __('register.login') }}</a></p>
         </div>
-
     </form>
+    </div>
 </x-layout>

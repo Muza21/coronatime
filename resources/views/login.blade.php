@@ -1,43 +1,66 @@
 <x-layout>
-
-    <header class="mt-10">
+    <div class="max-w-md mx-auto">
         <img src="{{ asset('images/Group 1.svg') }}" alt="coronatime">
-        <h3 class="text-xl font-bold">{{ __('login.welcome_back') }}</h3>
-        <p class="text-sm text-gray-400">{{ __('login.enter_your_details') }}</p>
-    </header>
+        <h3 class="text-xl font-bold mt-10">{{ __('login.welcome_back') }}</h3>
+        <p class="text-sm text-gray-400 mt-5">{{ __('login.enter_your_details') }}</p>
+    </div>
 
-    <form method="POST" action="{{ route('login.user') }}">
+    <form method="POST" action="{{ route('login.user') }}" class="max-w-md mx-auto mt-8 mb-0 space-y-4">
         @csrf
+        <div class="pb-4">
+            <label for="Username">{{ __('login.username') }}</label>
 
-        <div class="mb-5">
-            <label for="username">{{ __('login.username') }}</label>
-
-            <input class="border border-gray-400 p-2 w-full rounded-xl" type="text" name="username" id="username"
-                value="{{ old('username') }}" placeholder="{{ __('login.enter_unique_username_or_email') }}" required>
-
+            <div class="relative">
+                <input
+                    class="w-full p-4 pr-12 text-sm border-gray-400 rounded-lg shadow-md
+                    @if (!$errors->any()) border-gray-400
+                    @elseif ($errors->has('username')) border-red-500
+                    @else border-green-400 @endif"
+                    type="text" name="username" id="username" value="{{ old('username') }}"
+                    placeholder="{{ __('login.enter_unique_username_or_email') }}" required>
+                <img class="top-4 right-4 absolute
+                    @if ($errors->has('username') || !$errors->any()) hidden @elseif(old('username') == '') hidden @else block @endif"
+                    src="{{ asset('images/success.svg') }}" alt="success">
+            </div>
             @error('username')
-                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                <div class="flex mt-1 absolute">
+                    <img src="{{ asset('images/failure.svg') }}" alt="error">
+                    <p class="text-red-500 text-sm ml-1 flex">{{ $message }}</p>
+                </div>
             @enderror
         </div>
 
-        <div class="mb-6">
+        <div class="pb-4">
             <label for="password">{{ __('login.password') }}</label>
-
-            <input class="border border-gray-400 p-2 w-full rounded-xl" type="password" name="password" id="password"
-                placeholder="{{ __('login.fill_in_password') }}" required>
+            <div class="relative">
+                <input
+                    class="w-full p-4 pr-12 text-sm border-gray-400 rounded-lg shadow-md
+                    @if ($errors->has('password') || $errors->any()) border-red-500
+                    @elseif(!$errors->any())border-gray-400
+                    @else border-green-400 @endif"
+                    type="password" name="password" id="password" placeholder="{{ __('login.fill_in_password') }}"
+                    required>
+                <img class="top-3 right-4 absolute
+                    @if ($errors->has('password') || !$errors->any()) hidden @elseif(old('password') == '') hidden @else block @endif"
+                    src="{{ asset('images/success.svg') }}" alt="success">
+            </div>
 
             @error('password')
-                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                <div class="flex mt-1 absolute">
+                    <img src="{{ asset('images/failure.svg') }}" alt="error">
+                    <p class="text-red-500 text-sm ml-1 flex">{{ $message }}</p>
+                </div>
             @enderror
         </div>
 
-        <div class="mb-6 flex justify-between">
+        <div class="my-6 flex justify-between">
             <div>
-                <input type="checkbox" name="remember">
-                <label for="remember">{{ __('login.remember_this_device') }}</label>
+                <input type="checkbox" name="remember" class="accent-green-600 w-4 h-4">
+                <label for="remember" class="text-sm font-semibold">{{ __('login.remember_this_device') }}</label>
             </div>
             <div>
-                <a href="{{ route('password.request') }}">{{ __('login.forgot_password') }}</a>
+                <a class="text-blue-700 text-sm font-semibold"
+                    href="{{ route('password.request') }}">{{ __('login.forgot_password') }}</a>
             </div>
         </div>
 
@@ -46,10 +69,9 @@
             {{ __('login.login') }}
         </button>
 
-        <div class="text-center">
-            <p>{{ __('login.dont_have_an_account') }} <a href="{{ route('register.view') }}"
-                    class="font-bold">{{ __('login.sign_up_for_free') }}</a></p>
+        <div class="text-center mt-4">
+            <p class="text-gray-400">{{ __('login.dont_have_an_account') }} <a class="text-gray-800 font-bold"
+                    href="{{ route('register.view') }}" class="font-bold">{{ __('login.sign_up_for_free') }}</a></p>
         </div>
-
     </form>
 </x-layout>
