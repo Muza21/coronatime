@@ -12,7 +12,7 @@
 
 The Coronatime is a website, where you can register and after verification of your account, you can see the statistics of corona in different countries. On how to get started please check [getting started](#getting-started).
 <p align="center">
-  <img src="public/images/worldwide-statistics.png" width="350" title="hover text">
+  <img src="public/images/worldwide-statistics.png" width="450" title="hover text">
 </p>
 
 ## Prerequisites
