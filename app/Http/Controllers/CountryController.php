@@ -28,7 +28,7 @@ class CountryController extends Controller
 
 	public function sortBy(string $columnName, $sort): array
 	{
-		$countries = Country::all()->sortBy($columnName, ($columnName == 'name' ? SORT_LOCALE_STRING : SORT_REGULAR), $sort === 'asc');
+		$countries = Country::all()->sortBy($columnName, ($columnName == 'name' ? SORT_LOCALE_STRING : SORT_REGULAR), $sort === 'desc');
 		return compact('countries', 'sort');
 	}
 

@@ -31,7 +31,7 @@
             </div>
 
 
-            <div class="h-96 max-h-96 overflow-y-scroll relative rounded-md mt-10 border border-gray-200">
+            <div class="max-h-96 overflow-y-auto relative rounded-md mt-10 border border-gray-200">
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
@@ -98,7 +98,7 @@
                         </tr>
                     </thead>
 
-                    <tbody class="h-96 max-h-96 overflow-y-scroll">
+                    <tbody>
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                             <th scope="row"
                                 class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
