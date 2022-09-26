@@ -9,7 +9,7 @@ class CountryController extends Controller
 {
 	public function index(): View
 	{
-		return view('dashboard', $this->sumAll());
+		return view('dashboard', $this->sumAll('name'));
 	}
 
 	public function sortByColumn($columnName): View
@@ -20,10 +20,10 @@ class CountryController extends Controller
 			->where('name->en', 'like', '%' . request('search') . '%')
 			->orwhere('name->ka', 'like', '%' . request('search') . '%')->get();
 			$sort = request('sort', 'asc');
-			return view('by-country', compact('countries', 'sort'), $this->sumAll());
+			return view('by-country', compact('countries', 'sort'), $this->sumAll($columnName));
 		}
 		$countries = $this->sortBy($columnName, request('sort', 'asc'));
-		return view('by-country', $countries, $this->sumAll());
+		return view('by-country', $countries, $this->sumAll($columnName));
 	}
 
 	public function sortBy(string $columnName, $sort): array
@@ -32,9 +32,10 @@ class CountryController extends Controller
 		return compact('countries', 'sort');
 	}
 
-	public function sumAll(): array
+	public function sumAll($columnName): array
 	{
 		return [
+			'column'           => $columnName,
 			'new_cases'        => number_format(Country::sum('new_cases')),
 			'recovered'        => number_format(Country::sum('recovered')),
 			'deaths'           => number_format(Country::sum('deaths')),
