@@ -16,7 +16,9 @@ class CountryController extends Controller
 	{
 		if (request('search'))
 		{
-			$countries = Country::latest()->where('name', 'like', '%' . request('search') . '%')->get();
+			$countries = Country::latest()
+			->where('name->en', 'like', '%' . request('search') . '%')
+			->orwhere('name->ka', 'like', '%' . request('search') . '%')->get();
 			$sort = request('sort', 'asc');
 			return view('by-country', compact('countries', 'sort'), $this->sumAll());
 		}
