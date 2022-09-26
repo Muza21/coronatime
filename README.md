@@ -1,64 +1,108 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## Table of Contents
 
+ * [Introduction](#introduction)
+ * [Prerequisites](#prerequisites)
+ * [Tech Stack](#tech-stack)
+ * [Getting started](#getting-started)
+ * [Development](#development)
+ * [Deployment](#deployment)
+ * [Resources](#resources)
+
+## Introduction
+
+The Coronatime is a website, where you can register and after verification of your account, you can see the statistics of corona in different countries. On how to get started please check [getting started](#getting-started).
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <img src="public/images/worldwide-statistics.png" width="450" title="hover text">
 </p>
 
-## About Laravel
+## Prerequisites
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+ - PHP@8.1.9 and up
+ - MYSQL@8 and up
+ - npm@6.14.17 and up
+ - composer@2.4 and up
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Tech Stack
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+ - [Laravel@9.x](https://laravel.com/docs/9.x) - back-end framework
+ - [tailwindcss](https://tailwindcss.com/docs/installation) - front-end
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Getting started
 
-## Laravel Sponsors
+1\. First, you need to clone coronatime from github:
+```sh
+git clone https://github.com/RedberryInternship/lasha-muzashvili-corona-time.git
+```
+```sh
+cd lasha-muzashvili-corona-time/
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+2\. Next step requires you to run *composer install* in order to install all the dependencies.
+```sh
+composer install
+```
 
-### Premium Partners
+3\. after you have installed all the PHP dependencies, it's time to install all the JS dependencies:
+```sh
+npm install
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+and also:
+```sh
+npm run dev
+```
+in order to build your JS/SaaS resources.
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
+4\. Now we need to set our env file. Go to the root of your project and execute this command.
+```sh
+cp .env.example .env
+```
+And now you should provide **.env** file all the necessary environment variables.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+after setting up **.env** file, execute:
+```sh
+php artisan config:cache
+```
+in order to cache environment variables.
 
-## Security Vulnerabilities
+```sh
+php artisan migrate
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+4\. Now execute in the root of your project following:
+```sh
+  php artisan key:generate
+```
 
-## License
+Which generates auth key.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+##### Now, you should be good to go!
+
+## Development
+
+You can run Laravel's built-in development server by executing:
+
+```sh
+  php artisan serve
+```
+
+Then run this command:
+
+```sh
+  npm run dev
+```
+
+You can fetch data with this command:
+
+```sh
+  php artisan fetch:data
+```
+Now you can log in and see statistics.
+
+## Resources
+ - [drawSQL Diagram](https://drawsql.app/teams/redberry-28/diagrams/coronatime)
+ - [design](https://www.figma.com/file/O9A950iYrHgZHtBuCtNSY8/Coronatime)
