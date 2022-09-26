@@ -45,7 +45,7 @@
                             </svg>
                         </button>
                         <div x-show="show"
-                            class="py-2 absolute bg-gray-100  w-24 rounded-xl z-50 overflow-auto max-h-52"
+                            class="py-2 absolute bg-gray-100 w-full md:w-24 border border-gray-200 rounded-xl z-50 overflow-auto max-h-52"
                             style="display: none">
                             <x-dropdown-item href="{{ route('locale.change', 'en') }}">
                                 {{ __('dashboard.english') }}
