@@ -41,6 +41,22 @@
     p {
         text-align: center;
     }
+
+    a {
+        display: inline-block;
+        padding: 1em 3em;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+        margin: 0 auto;
+
+        background-color: #7ac142;
+    }
+
+    #button {
+        width: 100%;
+        text-align: center;
+    }
 </style>
 
 <body>
@@ -51,11 +67,9 @@
             <p style="text-align: center; font-weight: 700;">{{ __('mailable.recover_password') }}</p>
             <p style="text-align: center;">{{ __('mailable.click_this_button_password') }}</p>
         </div>
-        <div>
+        <div id="button">
             <a href="{{ route('password.reset', [$data['token'] . '?email=' . $data['email']]) }}">
-                <button>
-                    {{ __('mailable.recover_password') }}
-                </button>
+                {{ __('mailable.recover_password') }}
             </a>
         </div>
     </main>
