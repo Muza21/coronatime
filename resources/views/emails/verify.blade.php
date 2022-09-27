@@ -24,15 +24,20 @@
         font-weight: 700;
     }
 
-    button {
+    a {
+        display: inline-block;
+        padding: 1em 3em;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+        margin: 0 auto;
+
+        background-color: #7ac142;
+    }
+
+    #button {
         width: 100%;
-        border-radius: 0.75rem;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        font-weight: 700;
-        color: #ffffff;
-        --tw-bg-opacity: 1;
-        background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+        text-align: center;
     }
 
     p {
@@ -48,11 +53,9 @@
             <p style="text-align: center; font-weight: 700;">{{ __('mailable.confirmation_email') }}</p>
             <p style="text-align: center;">{{ __('mailable.click_this_button_email') }}</p>
         </div>
-        <div>
-            <a href="{{ route('verification.verify', [$data['id'], $data['token']]) }}">
-                <button>
-                    {{ __('mailable.confirmation_email') }}
-                </button>
+        <div id="button">
+            <a href="{{ route('password.reset', [$data['token'] . '?email=' . $data['email']]) }}">
+                {{ __('mailable.confirmation_email') }}
             </a>
         </div>
     </main>
