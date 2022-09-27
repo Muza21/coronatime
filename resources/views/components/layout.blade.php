@@ -29,8 +29,8 @@
         </div>
         <div class="relative w-0 flex-1 lg:block md:flex bg-gradient-to-tr i justify-around items-center hidden">
             <div class="ml-auto">
-                <img class="absolute top-0 bottom-0 right-0 h-full object-cover" src="images/covid-19.png"
-                    alt="vaccine">
+                <img class="absolute top-0 bottom-0 right-0 h-full object-cover"
+                    src="{{ asset('images/covid-19.png') }}" alt="vaccine">
             </div>
         </div>
     </section>
