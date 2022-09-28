@@ -12,7 +12,7 @@
             <div class="relative">
                 <input class="w-full p-4 md:p-6 pr-12 text-sm border-gray-400 rounded-lg shadow-md" type="text"
                     name="username" id="username" value="{{ old('username') }}"
-                    placeholder="{{ __('register.enter_unique_username') }}" required>
+                    placeholder="{{ __('register.enter_unique_username') }}">
                 <label for="username" class="text-gray-400">{{ __('register.username_should_be_unique') }}</label>
             </div>
             @error('username')
@@ -25,7 +25,7 @@
             <div class="relative">
                 <input class="w-full p-4 md:p-6 pr-12 text-sm border-gray-400 rounded-lg shadow-md" type="email"
                     name="email" id="email" value="{{ old('email') }}"
-                    placeholder="{{ __('register.enter_your_email') }}" required>
+                    placeholder="{{ __('register.enter_your_email') }}">
             </div>
             @error('email')
                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
@@ -36,7 +36,7 @@
             <label for="password">{{ __('register.password') }}</label>
             <div class="relative">
                 <input class="w-full p-4 md:p-6 pr-12 text-sm border-gray-400 rounded-lg shadow-md" type="password"
-                    name="password" id="password" placeholder="{{ __('register.fill_in_password') }}" required>
+                    name="password" id="password" placeholder="{{ __('register.fill_in_password') }}">
             </div>
             @error('password')
                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
@@ -48,7 +48,7 @@
             <div class="relative">
                 <input class="w-full p-4 md:p-6 pr-12 text-sm border-gray-400 rounded-lg shadow-md" type="password"
                     name="password_confirmation" id="password_confirmation"
-                    placeholder="{{ __('register.repeat_password') }}" required>
+                    placeholder="{{ __('register.repeat_password') }}">
             </div>
             @error('password_confirmation')
                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
