@@ -33,11 +33,9 @@ class RequestData extends Command
 
 		foreach ($countries as $country)
 		{
-			$stats = Http::withHeaders([
-				'Accept'       => 'application/json',
-				'Content-Type' => 'application/json', ])->post('https://devtest.ge/get-country-statistics', [
-					'code' => $country['code'],
-				])->json();
+			$stats = Http::post('https://devtest.ge/get-country-statistics', [
+				'code' => $country['code'],
+			])->collect();
 			Country::updateOrCreate(
 				[
 					'id'           => $stats['id'],
