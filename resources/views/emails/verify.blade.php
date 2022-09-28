@@ -54,7 +54,7 @@
             <p style="text-align: center;">{{ __('mailable.click_this_button_email') }}</p>
         </div>
         <div id="button">
-            <a href="{{ route('password.reset', [$data['token'] . '?email=' . $data['email']]) }}">
+            <a href="{{ route('verification.verify', [$data['id'], $data['token']]) }}">
                 {{ __('mailable.confirmation_email') }}
             </a>
         </div>
