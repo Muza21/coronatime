@@ -24,6 +24,10 @@
         font-weight: 700;
     }
 
+    p {
+        text-align: center;
+    }
+
     a {
         display: inline-block;
         padding: 1em 3em;
@@ -35,25 +39,21 @@
         background-color: #7ac142;
     }
 
-    #button {
+    .button {
         width: 100%;
-        text-align: center;
-    }
-
-    p {
         text-align: center;
     }
 </style>
 
 <body>
     <main>
-        <div>
+        <div class="button">
             <img src="{{ asset('images/Landing (Worldwide) 2.png') }}" alt="coronatime">
             <br><br>
-            <p style="text-align: center; font-weight: 700;">{{ __('mailable.confirmation_email') }}</p>
-            <p style="text-align: center;">{{ __('mailable.click_this_button_email') }}</p>
+            <p style="text-align: center; color: black; font-weight: 700;">{{ __('mailable.confirmation_email') }}</p>
+            <p style="text-align: center; color: black;">{{ __('mailable.click_this_button_email') }}</p>
         </div>
-        <div id="button">
+        <div class="button">
             <a href="{{ route('verification.verify', [$data['id'], $data['token']]) }}">
                 {{ __('mailable.confirmation_email') }}
             </a>
