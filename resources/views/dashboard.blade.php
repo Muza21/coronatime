@@ -20,7 +20,7 @@
                         <div class="py-6 px-5">
                             <div class="mt-8 flex flex-col items-center justify-between">
                                 <div class="h-14">
-                                    <img src="/images/Group 1797.svg" alt="chart" class="rounded-xl">
+                                    <img src="{{ asset('/images/Group 1797.svg') }}" alt="chart" class="rounded-xl">
                                 </div>
 
 
@@ -41,7 +41,7 @@
                         <div class="py-6 px-5">
                             <div class="mt-8 flex flex-col items-center justify-between">
                                 <div class="h-14">
-                                    <img src="/images/Group 1799.svg" alt="chart" class="">
+                                    <img src="{{ asset('/images/Group 1799.svg') }}" alt="chart" class="">
                                 </div>
 
 
@@ -62,7 +62,7 @@
                         <div class="py-6 px-5">
                             <div class="mt-8 flex flex-col items-center justify-between">
                                 <div class="h-14">
-                                    <img src="/images/Group 1798.svg" alt="chart" class="rounded-xl">
+                                    <img src="{{ asset('/images/Group 1798.svg') }}" alt="chart" class="rounded-xl">
                                 </div>
 
 

@@ -40,12 +40,13 @@
                                     {{ __('dashboard.countries') }}
                                     <a class="relative h-5 w-5 ml-1"
                                         href="{{ route('sort.columns', ['name', $sort == 'asc' ? 'desc' : 'asc']) }}">
-                                        <img class="relative top-0" src="/images/doubleArrow.svg" alt="sort">
+                                        <img class="relative top-0" src="{{ asset('/images/doubleArrow.svg') }}"
+                                            alt="sort">
                                         <div class="absolute top-1">
-                                            <img class="h-4 w-4 @if ($sort == 'desc' && $column == 'name') block @else hidden @endif"
-                                                src="/images/up-arrow.svg" alt="up">
-                                            <img class="h-4 w-4  @if ($sort == 'asc' && $column == 'name') block @else hidden @endif"
-                                                src="/images/down-arrow.svg" alt="down">
+                                            <img class="h-4 w-4 @if ($sort == 'asc' && $column == 'name') block @else hidden @endif"
+                                                src="{{ asset('/images/up-arrow.svg') }}" alt="up">
+                                            <img class="h-4 w-4  @if ($sort == 'desc' && $column == 'name') block @else hidden @endif"
+                                                src="{{ asset('/images/down-arrow.svg') }}" alt="down">
                                         </div>
                                     </a>
                                 </div>
@@ -55,12 +56,13 @@
                                     {{ __('dashboard.new_cases') }}
                                     <a class="relative h-5 w-5 ml-1"
                                         href="{{ route('sort.columns', ['new_cases', $sort == 'asc' ? 'desc' : 'asc']) }}">
-                                        <img class="relative top-0" src="/images/doubleArrow.svg" alt="sort">
+                                        <img class="relative top-0" src="{{ asset('/images/doubleArrow.svg') }}"
+                                            alt="sort">
                                         <div class="absolute top-1">
-                                            <img class="h-4 w-4 @if ($sort == 'desc' && $column == 'new_cases') block @else hidden @endif"
-                                                src="/images/up-arrow.svg" alt="up">
-                                            <img class="h-4 w-4  @if ($sort == 'asc' && $column == 'new_cases') block @else hidden @endif"
-                                                src="/images/down-arrow.svg" alt="down">
+                                            <img class="h-4 w-4 @if ($sort == 'asc' && $column == 'new_cases') block @else hidden @endif"
+                                                src="{{ asset('/images/up-arrow.svg') }}" alt="up">
+                                            <img class="h-4 w-4  @if ($sort == 'desc' && $column == 'new_cases') block @else hidden @endif"
+                                                src="{{ asset('/images/down-arrow.svg') }}" alt="down">
                                         </div>
                                     </a>
                                 </div>
@@ -70,12 +72,13 @@
                                     {{ __('dashboard.recovered') }}
                                     <a class="relative h-5 w-5 ml-1"
                                         href="{{ route('sort.columns', ['recovered', $sort == 'asc' ? 'desc' : 'asc']) }}">
-                                        <img class="relative top-0" src="/images/doubleArrow.svg" alt="sort">
+                                        <img class="relative top-0" src="{{ asset('/images/doubleArrow.svg') }}"
+                                            alt="sort">
                                         <div class="absolute top-1">
-                                            <img class="h-4 w-4 @if ($sort == 'desc' && $column == 'recovered') block @else hidden @endif"
-                                                src="/images/up-arrow.svg" alt="up">
-                                            <img class="h-4 w-4  @if ($sort == 'asc' && $column == 'recovered') block @else hidden @endif"
-                                                src="/images/down-arrow.svg" alt="down">
+                                            <img class="h-4 w-4 @if ($sort == 'asc' && $column == 'recovered') block @else hidden @endif"
+                                                src="{{ asset('/images/up-arrow.svg') }}" alt="up">
+                                            <img class="h-4 w-4  @if ($sort == 'desc' && $column == 'recovered') block @else hidden @endif"
+                                                src="{{ asset('/images/down-arrow.svg') }}" alt="down">
                                         </div>
                                     </a>
                                 </div>
@@ -85,12 +88,13 @@
                                     {{ __('dashboard.deaths') }}
                                     <a class="relative h-5 w-5 ml-1"
                                         href="{{ route('sort.columns', ['deaths', $sort == 'asc' ? 'desc' : 'asc']) }}">
-                                        <img class="relative top-0" src="/images/doubleArrow.svg" alt="sort">
+                                        <img class="relative top-0" src="{{ asset('/images/doubleArrow.svg') }}"
+                                            alt="sort">
                                         <div class="absolute top-1">
-                                            <img class="h-4 w-4 @if ($sort == 'desc' && $column == 'deaths') block @else hidden @endif"
-                                                src="/images/up-arrow.svg" alt="up">
-                                            <img class="h-4 w-4  @if ($sort == 'asc' && $column == 'deaths') block @else hidden @endif"
-                                                src="/images/down-arrow.svg" alt="down">
+                                            <img class="h-4 w-4 @if ($sort == 'asc' && $column == 'deaths') block @else hidden @endif"
+                                                src="{{ asset('/images/up-arrow.svg') }}" alt="up">
+                                            <img class="h-4 w-4  @if ($sort == 'desc' && $column == 'deaths') block @else hidden @endif"
+                                                src="{{ asset('/images/down-arrow.svg') }}" alt="down">
                                         </div>
                                     </a>
                                 </div>
