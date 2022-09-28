@@ -1,17 +1,16 @@
 <x-layout>
-    <div class="max-w-md mx-auto">
-        <img src="{{ asset('images/Group 1.svg') }}" alt="coronatime">
+    <div>
         <h3 class="text-xl font-bold mt-10">{{ __('register.welcome_to_coronatime') }}</h3>
         <p class="text-sm text-gray-400 mt-5">{{ __('register.enter_your_details') }}</p>
     </div>
 
-    <form method="POST" action="{{ route('registration.store') }}" class="max-w-md mx-auto mt-8 mb-0 space-y-4">
+    <form method="POST" action="{{ route('registration.store') }}" class="max-w-xl mt-8 mb-0 space-y-4">
         @csrf
         <div>
             <label for="Username">{{ __('register.username') }}</label>
 
             <div class="relative">
-                <input class="w-full p-4 pr-12 text-sm border-gray-400 rounded-lg shadow-md" type="text"
+                <input class="w-full p-4 md:p-6 pr-12 text-sm border-gray-400 rounded-lg shadow-md" type="text"
                     name="username" id="username" value="{{ old('username') }}"
                     placeholder="{{ __('register.enter_unique_username') }}" required>
                 <label for="username" class="text-gray-400">{{ __('register.username_should_be_unique') }}</label>
@@ -24,7 +23,7 @@
         <div>
             <label for="password">{{ __('register.email') }}</label>
             <div class="relative">
-                <input class="w-full p-4 pr-12 text-sm border-gray-400 rounded-lg shadow-md" type="email"
+                <input class="w-full p-4 md:p-6 pr-12 text-sm border-gray-400 rounded-lg shadow-md" type="email"
                     name="email" id="email" value="{{ old('email') }}"
                     placeholder="{{ __('register.enter_your_email') }}" required>
             </div>
@@ -36,7 +35,7 @@
         <div>
             <label for="password">{{ __('register.password') }}</label>
             <div class="relative">
-                <input class="w-full p-4 pr-12 text-sm border-gray-400 rounded-lg shadow-md" type="password"
+                <input class="w-full p-4 md:p-6 pr-12 text-sm border-gray-400 rounded-lg shadow-md" type="password"
                     name="password" id="password" placeholder="{{ __('register.fill_in_password') }}" required>
             </div>
             @error('password')
@@ -47,7 +46,7 @@
         <div>
             <label for="password_confirmation">{{ __('register.repeat_password') }}</label>
             <div class="relative">
-                <input class="w-full p-4 pr-12 text-sm border-gray-400 rounded-lg shadow-md" type="password"
+                <input class="w-full p-4 md:p-6 pr-12 text-sm border-gray-400 rounded-lg shadow-md" type="password"
                     name="password_confirmation" id="password_confirmation"
                     placeholder="{{ __('register.repeat_password') }}" required>
             </div>
@@ -57,11 +56,11 @@
         </div>
 
         <button type="submit"
-            class="bg-green-500 text-white text-center max-w-md uppercase font-semibold text-lg py-4 w-full rounded-xl hover:bg-green-600">
+            class="bg-green-500 text-white text-center  uppercase font-semibold text-lg py-4 md:py-6 w-full rounded-xl hover:bg-green-600">
             {{ __('register.sign_up') }}
         </button>
 
-        <div class="text-center max-w-md">
+        <div class="text-center">
             <p>{{ __('register.already_have_an_account') }} <a href="{{ route('login.view') }}"
                     class="font-bold">{{ __('register.login') }}</a></p>
         </div>

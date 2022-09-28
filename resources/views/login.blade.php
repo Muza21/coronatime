@@ -1,18 +1,17 @@
 <x-layout>
-    <div class="max-w-md mx-auto">
-        <img src="{{ asset('images/Group 1.svg') }}" alt="coronatime">
+    <div class="max-w-md">
         <h3 class="text-xl font-bold mt-10">{{ __('login.welcome_back') }}</h3>
         <p class="text-sm text-gray-400 mt-5">{{ __('login.enter_your_details') }}</p>
     </div>
 
-    <form method="POST" action="{{ route('login.user') }}" class="max-w-md mx-auto mt-8 mb-0 space-y-4">
+    <form method="POST" action="{{ route('login.user') }}" class="max-w-xl mt-8 mb-0 space-y-4">
         @csrf
         <div class="pb-4">
             <label for="Username">{{ __('login.username') }}</label>
 
             <div class="relative">
                 <input
-                    class="w-full p-4 pr-12 text-sm border-gray-400 rounded-lg shadow-md
+                    class="w-full p-4 md:p-6 pr-12 text-sm border-gray-400 rounded-lg shadow-md
                     @if (!$errors->any()) border-gray-400
                     @elseif ($errors->has('username')) border-red-500
                     @else border-green-400 @endif"
@@ -34,7 +33,7 @@
             <label for="password">{{ __('login.password') }}</label>
             <div class="relative">
                 <input
-                    class="w-full p-4 pr-12 text-sm border-gray-400 rounded-lg shadow-md
+                    class="w-full p-4 md:p-6 pr-12 text-sm border-gray-400 rounded-lg shadow-md
                     @if ($errors->has('password') || $errors->any()) border-red-500
                     @elseif(!$errors->any())border-gray-400
                     @else border-green-400 @endif"
@@ -65,7 +64,7 @@
         </div>
 
         <button type="submit"
-            class="bg-green-500 text-white text-center uppercase font-semibold text-lg py-4 w-full rounded-xl hover:bg-green-600">
+            class="bg-green-500 text-white text-center uppercase font-semibold text-lg py-4 md:py-6 w-full rounded-xl hover:bg-green-600">
             {{ __('login.login') }}
         </button>
 

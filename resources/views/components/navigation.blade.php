@@ -14,8 +14,8 @@
 </head>
 
 <body>
-    <nav class="mt-3">
-        <div class="px-4 md:px-16 flex flex-wrap justify-between items-center mx-auto">
+    <nav class="mt-3 mb-10">
+        <div class="px-4 md:px-24 flex flex-wrap justify-between items-center mx-auto">
             <img src="{{ asset('images/Group 1.svg') }}" alt="coronatime">
 
             <button data-collapse-toggle="mobile-menu" type="button"
@@ -74,7 +74,10 @@
             </div>
         </div>
     </nav>
-    {{ $slot }}
+    <div class="md:mx-8">
+        {{ $slot }}
+
+    </div>
 </body>
 
 </html>
