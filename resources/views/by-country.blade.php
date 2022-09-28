@@ -31,8 +31,7 @@
             </div>
 
 
-            {{-- <div class="max-h-96 overflow-y-auto relative rounded-md mt-10 border border-gray-200"> --}}
-            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <table class="mt-6 w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead
                     class="divide-y flex flex-col  w-full bg-slate-200 text-xs text-gray-700 uppercase  dark:bg-gray-700 dark:text-gray-400">
                     <tr class="grid grid-cols-4">
@@ -166,7 +165,6 @@
                     @endforeach
                 </tbody>
             </table>
-            {{-- </div> --}}
         </section>
     </div>
 </x-navigation>
