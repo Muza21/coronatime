@@ -11,8 +11,9 @@ return [
 	| specify a specific custom language line for a given attribute rule.
 	|
 	*/
-
-	'custom' => [
+	'password_did_not_match'=> 'პაროლი არასწორია',
+	'account_not_verified'  => 'ექაუნთი არ არის ვერიფიცირებული',
+	'custom'                => [
 		'email' => [
 			'required'     => 'ელ-ფოსტა აუცილებელია',
 			'max'          => 'ელ-ფოსტა აღემატება 255 სიმბოლოს',

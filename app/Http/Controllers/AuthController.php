@@ -21,7 +21,7 @@ class AuthController extends Controller
 			{
 				auth()->logout();
 				throw ValidationException::withMessages([
-					'username' => 'Your account is not verified.',
+					'username' => __('validation.account_not_verified'),
 				]);
 			}
 			return redirect(route('dashboard.view'));
@@ -29,7 +29,7 @@ class AuthController extends Controller
 		else
 		{
 			throw ValidationException::withMessages([
-				'password' => 'Password did not match',
+				'password' => __('validation.password_did_not_match'),
 			]);
 		}
 	}
