@@ -12,6 +12,23 @@ class AuthController extends Controller
 {
 	public function login(LoginRequest $request): RedirectResponse
 	{
+		$this->authenticate($request);
+		return redirect(route('dashboard.view'));
+	}
+
+	public function logout(Request $request): RedirectResponse
+	{
+		auth()->logout();
+
+		$request->session()->invalidate();
+
+		$request->session()->regenerateToken();
+
+		return redirect(route('login.view'));
+	}
+
+	public function authenticate($request)
+	{
 		$validation = $request->validated();
 		$getEmailOrUsername = filter_var($validation['username'], FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 
@@ -24,7 +41,6 @@ class AuthController extends Controller
 					'username' => __('validation.account_not_verified'),
 				]);
 			}
-			return redirect(route('dashboard.view'));
 		}
 		else
 		{
@@ -32,16 +48,5 @@ class AuthController extends Controller
 				'password' => __('validation.password_did_not_match'),
 			]);
 		}
-	}
-
-	public function logout(Request $request): RedirectResponse
-	{
-		auth()->logout();
-
-		$request->session()->invalidate();
-
-		$request->session()->regenerateToken();
-
-		return redirect(route('login.view'));
 	}
 }
