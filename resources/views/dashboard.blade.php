@@ -14,8 +14,8 @@
     </div>
     <div>
         <section class="mx-auto">
-            <div class="md:mx-10 mt-14">
-                <div class="grid grid-cols-2 md:grid-cols-3 mt-20 mb-10">
+            <div class="md:mx-10 md:mt-14">
+                <div class="grid grid-cols-2 md:grid-cols-3 mt-4 md:mt-20 mb-10">
                     <div class='bg-blue-50 hover:bg-blue-100 col-span-2 md:col-span-1 border rounded-xl ml-5 mr-5 mt-4'>
                         <div class="py-6 px-5">
                             <div class="mt-8 flex flex-col items-center justify-between">
@@ -37,7 +37,7 @@
                         </div>
                     </div>
 
-                    <div class='bg-green-50 hover:bg-green-100 border rounded-xl ml-5 mr-5 mt-4'>
+                    <div class='bg-green-50 hover:bg-green-100 border rounded-xl ml-5 md:mr-5 mr-2 mt-4'>
                         <div class="py-6 px-5">
                             <div class="mt-8 flex flex-col items-center justify-between">
                                 <div class="h-14">
@@ -58,7 +58,7 @@
                         </div>
                     </div>
 
-                    <div class='bg-yellow-50 hover:bg-yellow-100 border rounded-xl ml-5 mr-5 mt-4'>
+                    <div class='bg-yellow-50 hover:bg-yellow-100 border rounded-xl ml-2 md:ml-5 mr-5 mt-4'>
                         <div class="py-6 px-5">
                             <div class="mt-8 flex flex-col items-center justify-between">
                                 <div class="h-14">
