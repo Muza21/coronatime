@@ -27,22 +27,24 @@ Route::middleware(['guest'])->group(function () {
 	Route::post('register', [RegisterController::class, 'store'])->name('registration.store');
 
 	Route::view('/forgot-password', 'forgot-password')->name('password.request');
-	Route::post('/forgot-password', [PasswordResetController::class, 'sendResetLink'])->name('password.email');
-	Route::get('/reset-password/{token}', [PasswordResetController::class, 'showResetForm'])->name('password.reset');
-	Route::post('/reset-password', [PasswordResetController::class, 'update'])->name('password.update');
+
+	Route::controller(PasswordResetController::class)->group(function () {
+		Route::post('/forgot-password', 'sendResetLink')->name('password.email');
+		Route::get('/reset-password/{token}', 'showResetForm')->name('password.reset');
+		Route::post('/reset-password', 'update')->name('password.update');
+	});
 });
+
 Route::view('notice', 'reset-notice')->name('reset.notice');
-
 Route::view('confirmed', 'confirmed')->name('email.confirmed');
-
 Route::get('/email/verify/{id}/{token}', [VerifyEmailController::class, 'verifyEmail'])->name('verification.verify');
 Route::view('/email/verify', 'verify-notice')->name('verification.notice');
 
 Route::middleware(['auth', 'verified'])->group(function () {
-	Route::get('dashboard', [CountryController::class, 'index'])->name('dashboard.view');
-
-	Route::get('dashboard/{columnName}/{sort}', [CountryController::class, 'sortByColumn'])->name('sort.columns');
-
+	Route::controller(CountryController::class)->group(function () {
+		Route::get('dashboard', 'index')->name('dashboard.view');
+		Route::get('dashboard/{columnName}/{sort}', 'sortByColumn')->name('sort.columns');
+	});
 	Route::post('logout', [AuthController::class, 'logout'])->name('logout.user');
 });
 

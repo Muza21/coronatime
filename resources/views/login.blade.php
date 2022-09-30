@@ -16,8 +16,8 @@
                     @elseif ($errors->has('username')) border-red-500
                     @else border-green-400 @endif"
                     type="text" name="username" id="username" value="{{ old('username') }}"
-                    placeholder="{{ __('login.enter_unique_username_or_email') }}" required>
-                <img class="top-4 right-4 absolute
+                    placeholder="{{ __('login.enter_unique_username_or_email') }}">
+                <img class="top-4 md:top-6 right-4 absolute
                     @if ($errors->has('username') || !$errors->any()) hidden @elseif(old('username') == '') hidden @else block @endif"
                     src="{{ asset('images/success.svg') }}" alt="success">
             </div>
@@ -37,9 +37,8 @@
                     @if ($errors->has('password') || $errors->any()) border-red-500
                     @elseif(!$errors->any())border-gray-400
                     @else border-green-400 @endif"
-                    type="password" name="password" id="password" placeholder="{{ __('login.fill_in_password') }}"
-                    required>
-                <img class="top-3 right-4 absolute
+                    type="password" name="password" id="password" placeholder="{{ __('login.fill_in_password') }}">
+                <img class="top-4 md:top-6 right-4 absolute
                     @if ($errors->has('password') || !$errors->any()) hidden @elseif(old('password') == '') hidden @else block @endif"
                     src="{{ asset('images/success.svg') }}" alt="success">
             </div>

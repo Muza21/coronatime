@@ -31,113 +31,140 @@
             </div>
 
 
-            <div class="max-h-96 overflow-y-auto relative rounded-md mt-10 border border-gray-200">
-                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                            <th scope="col" class="py-3 pl-6">
-                                <div class="flex align-middle">
-                                    {{ __('dashboard.countries') }}
-                                    <a class="relative h-5 w-5 ml-1"
-                                        href="{{ route('sort.columns', ['name', $sort == 'asc' ? 'desc' : 'asc']) }}">
-                                        <img class="relative top-0" src="{{ asset('/images/doubleArrow.svg') }}"
+            <table class="mt-6 w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                <thead
+                    class="divide-y flex flex-col  w-full bg-slate-200 text-xs text-gray-700 uppercase  dark:bg-gray-700 dark:text-gray-400">
+                    <tr class="grid grid-cols-4">
+                        <th class="flex py-3 px-6 align-middle">
+                            <div>
+                                {{ __('dashboard.countries') }}
+                            </div>
+                            <div class="ml-1">
+                                <div class="mb-1">
+                                    <a class="" href="{{ route('sort.columns', ['name', 'asc']) }}">
+                                        <img class="relative top-0" src="{{ asset('/images/arrowUp.svg') }}"
                                             alt="sort">
-                                        <div class="absolute top-1">
-                                            <img class="h-4 w-4 @if ($sort == 'asc' && $column == 'name') block @else hidden @endif"
-                                                src="{{ asset('/images/up-arrow.svg') }}" alt="up">
-                                            <img class="h-4 w-4  @if ($sort == 'desc' && $column == 'name') block @else hidden @endif"
-                                                src="{{ asset('/images/down-arrow.svg') }}" alt="down">
-                                        </div>
                                     </a>
+                                    <img class="absolute -mt-[6px] h-3 w-3 -ml-[1px] @if ($sort == 'asc' && $column == 'name') block @else hidden @endif"
+                                        src="{{ asset('/images/up-arrow.svg') }}" alt="up">
                                 </div>
-                            </th>
-                            <th scope="col" class="py-3 px-6">
-                                <div class="flex">
-                                    {{ __('dashboard.new_cases') }}
-                                    <a class="relative h-5 w-5 ml-1"
-                                        href="{{ route('sort.columns', ['new_cases', $sort == 'asc' ? 'desc' : 'asc']) }}">
-                                        <img class="relative top-0" src="{{ asset('/images/doubleArrow.svg') }}"
+                                <div>
+                                    <a class="" href="{{ route('sort.columns', ['name', 'desc']) }}">
+                                        <img class="relative top-0" src="{{ asset('/images/DownArrow.svg') }}"
                                             alt="sort">
-                                        <div class="absolute top-1">
-                                            <img class="h-4 w-4 @if ($sort == 'asc' && $column == 'new_cases') block @else hidden @endif"
-                                                src="{{ asset('/images/up-arrow.svg') }}" alt="up">
-                                            <img class="h-4 w-4  @if ($sort == 'desc' && $column == 'new_cases') block @else hidden @endif"
-                                                src="{{ asset('/images/down-arrow.svg') }}" alt="down">
-                                        </div>
                                     </a>
+                                    <img class="absolute -mt-[12px] h-3 w-3 -ml-[1px]  @if ($sort == 'desc' && $column == 'name') block @else hidden @endif"
+                                        src="{{ asset('/images/down-arrow.svg') }}" alt="down">
                                 </div>
-                            </th>
-                            <th scope="col" class="py-3 px-6">
-                                <div class="flex">
-                                    {{ __('dashboard.recovered') }}
-                                    <a class="relative h-5 w-5 ml-1"
-                                        href="{{ route('sort.columns', ['recovered', $sort == 'asc' ? 'desc' : 'asc']) }}">
-                                        <img class="relative top-0" src="{{ asset('/images/doubleArrow.svg') }}"
+                            </div>
+                        </th>
+                        <th class="flex py-3 px-6">
+                            <div>
+                                {{ __('dashboard.new_cases') }}
+                            </div>
+                            <div class="ml-1">
+                                <div class="mb-1">
+                                    <a class="" href="{{ route('sort.columns', ['new_cases', 'asc']) }}">
+                                        <img class="relative top-0" src="{{ asset('/images/arrowUp.svg') }}"
                                             alt="sort">
-                                        <div class="absolute top-1">
-                                            <img class="h-4 w-4 @if ($sort == 'asc' && $column == 'recovered') block @else hidden @endif"
-                                                src="{{ asset('/images/up-arrow.svg') }}" alt="up">
-                                            <img class="h-4 w-4  @if ($sort == 'desc' && $column == 'recovered') block @else hidden @endif"
-                                                src="{{ asset('/images/down-arrow.svg') }}" alt="down">
-                                        </div>
                                     </a>
+                                    <img class="absolute -mt-[6px] h-3 w-3 -ml-[1px] @if ($sort == 'asc' && $column == 'new_cases') block @else hidden @endif"
+                                        src="{{ asset('/images/up-arrow.svg') }}" alt="up">
                                 </div>
-                            </th>
-                            <th scope="col" class="py-3 px-6">
-                                <div class="flex">
-                                    {{ __('dashboard.deaths') }}
-                                    <a class="relative h-5 w-5 ml-1"
-                                        href="{{ route('sort.columns', ['deaths', $sort == 'asc' ? 'desc' : 'asc']) }}">
-                                        <img class="relative top-0" src="{{ asset('/images/doubleArrow.svg') }}"
+                                <div>
+                                    <a class="" href="{{ route('sort.columns', ['new_cases', 'desc']) }}">
+                                        <img class="relative top-0" src="{{ asset('/images/DownArrow.svg') }}"
                                             alt="sort">
-                                        <div class="absolute top-1">
-                                            <img class="h-4 w-4 @if ($sort == 'asc' && $column == 'deaths') block @else hidden @endif"
-                                                src="{{ asset('/images/up-arrow.svg') }}" alt="up">
-                                            <img class="h-4 w-4  @if ($sort == 'desc' && $column == 'deaths') block @else hidden @endif"
-                                                src="{{ asset('/images/down-arrow.svg') }}" alt="down">
-                                        </div>
                                     </a>
+                                    <img class="absolute -mt-[12px] h-3 w-3 -ml-[1px]  @if ($sort == 'desc' && $column == 'new_cases') block @else hidden @endif"
+                                        src="{{ asset('/images/down-arrow.svg') }}" alt="down">
                                 </div>
-                            </th>
-                        </tr>
-                    </thead>
+                            </div>
+                        </th>
+                        <th class="flex py-3 px-6">
+                            <div>
+                                {{ __('dashboard.recovered') }}
+                            </div>
+                            <div class="ml-1">
+                                <div class="mb-1">
+                                    <a class="" href="{{ route('sort.columns', ['recovered', 'asc']) }}">
+                                        <img class="relative top-0" src="{{ asset('/images/arrowUp.svg') }}"
+                                            alt="sort">
+                                    </a>
+                                    <img class="absolute -mt-[6px] h-3 w-3 -ml-[1px] @if ($sort == 'asc' && $column == 'recovered') block @else hidden @endif"
+                                        src="{{ asset('/images/up-arrow.svg') }}" alt="up">
+                                </div>
+                                <div>
+                                    <a class="" href="{{ route('sort.columns', ['recovered', 'desc']) }}">
+                                        <img class="relative top-0" src="{{ asset('/images/DownArrow.svg') }}"
+                                            alt="sort">
+                                    </a>
+                                    <img class="absolute -mt-[12px] h-3 w-3 -ml-[1px]  @if ($sort == 'desc' && $column == 'recovered') block @else hidden @endif"
+                                        src="{{ asset('/images/down-arrow.svg') }}" alt="down">
+                                </div>
+                            </div>
+                        </th>
+                        <th class="flex py-3 px-6">
+                            <div>
+                                {{ __('dashboard.deaths') }}
+                            </div>
+                            <div class="ml-1">
+                                <div class="mb-1">
+                                    <a class="" href="{{ route('sort.columns', ['deaths', 'asc']) }}">
+                                        <img class="relative top-0" src="{{ asset('/images/arrowUp.svg') }}"
+                                            alt="sort">
+                                    </a>
+                                    <img class="absolute -mt-[6px] h-3 w-3 -ml-[1px] @if ($sort == 'asc' && $column == 'deaths') block @else hidden @endif"
+                                        src="{{ asset('/images/up-arrow.svg') }}" alt="up">
+                                </div>
+                                <div>
+                                    <a class="" href="{{ route('sort.columns', ['deaths', 'desc']) }}">
+                                        <img class="relative top-0" src="{{ asset('/images/DownArrow.svg') }}"
+                                            alt="sort">
+                                    </a>
+                                    <img class="absolute -mt-[12px] h-3 w-3 -ml-[1px]  @if ($sort == 'desc' && $column == 'deaths') block @else hidden @endif"
+                                        src="{{ asset('/images/down-arrow.svg') }}" alt="down">
+                                </div>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
 
-                    <tbody>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <tbody class="divide-y max-h-96 flex flex-col overflow-y-auto w-full divide-gray-100 bg-white">
+                    <tr class="grid grid-cols-4 bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <th scope="row"
+                            class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{ __('dashboard.worldwide') }}
+                        </th>
+                        <td class="py-4 px-6">
+                            {{ $new_cases }}
+                        </td>
+                        <td class="py-4 px-6">
+                            {{ $recovered }}
+                        </td>
+                        <td class="py-4 px-6">
+                            {{ $deaths }}
+                        </td>
+                    </tr>
+                    @foreach ($countries as $country)
+                        <tr class="grid grid-cols-4 bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                             <th scope="row"
                                 class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                {{ __('dashboard.worldwide') }}
+                                {{ $country->name }}
                             </th>
                             <td class="py-4 px-6">
-                                {{ $new_cases }}
+                                {{ $country->new_cases }}
                             </td>
                             <td class="py-4 px-6">
-                                {{ $recovered }}
+                                {{ $country->recovered }}
                             </td>
                             <td class="py-4 px-6">
-                                {{ $deaths }}
+                                {{ $country->deaths }}
                             </td>
                         </tr>
-                        @foreach ($countries as $country)
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                <th scope="row"
-                                    class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    {{ $country->name }}
-                                </th>
-                                <td class="py-4 px-6">
-                                    {{ $country->new_cases }}
-                                </td>
-                                <td class="py-4 px-6">
-                                    {{ $country->recovered }}
-                                </td>
-                                <td class="py-4 px-6">
-                                    {{ $country->deaths }}
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
+                    @endforeach
+                </tbody>
+            </table>
         </section>
     </div>
 </x-navigation>

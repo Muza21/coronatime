@@ -131,14 +131,15 @@ return [
 		'numeric' => 'The :attribute must be :size.',
 		'string'  => 'The :attribute must be :size characters.',
 	],
-	'starts_with' => 'The :attribute must start with one of the following: :values.',
-	'string'      => 'The :attribute must be a string.',
-	'timezone'    => 'The :attribute must be a valid timezone.',
-	'unique'      => 'The :attribute has already been taken.',
-	'uploaded'    => 'The :attribute failed to upload.',
-	'url'         => 'The :attribute must be a valid URL.',
-	'uuid'        => 'The :attribute must be a valid UUID.',
-
+	'starts_with'           => 'The :attribute must start with one of the following: :values.',
+	'string'                => 'The :attribute must be a string.',
+	'timezone'              => 'The :attribute must be a valid timezone.',
+	'unique'                => 'The :attribute has already been taken.',
+	'uploaded'              => 'The :attribute failed to upload.',
+	'url'                   => 'The :attribute must be a valid URL.',
+	'uuid'                  => 'The :attribute must be a valid UUID.',
+	'password_did_not_match'=> 'The password did not match',
+	'account_not_verified'  => 'Your account is not verified',
 	/*
 	|--------------------------------------------------------------------------
 	| Custom Validation Language Lines
