@@ -103,6 +103,7 @@ class AuthTest extends TestCase
 			'username' => $user->username,
 			'password' => '123',
 		]);
+		$this->assertAuthenticated();
 		$response->assertRedirect('dashboard');
 	}
 
