@@ -17,6 +17,7 @@ class CountryFactory extends Factory
 	public function definition()
 	{
 		return [
+			'code'                   => fake()->unique()->countryCode(),
 			'name'                   => fake()->unique()->country,
 			'new_cases'              => fake()->numberBetween($min = 1, $max = 100000),
 			'recovered'              => fake()->numberBetween($min = 1, $max = 100000),
