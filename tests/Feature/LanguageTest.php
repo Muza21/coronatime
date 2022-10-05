@@ -13,19 +13,22 @@ class LanguageTest extends TestCase
 	 */
 	public function test_language_will_change_to_english()
 	{
+		$this->get(route('login.view'));
 		$response = $this->get(route('locale.change', 'en'));
-		$response->assertStatus(302);
+		$response->assertRedirect(route('login.view'));
 	}
 
 	public function test_language_will_change_to_georgian()
 	{
+		$this->get(route('login.view'));
 		$response = $this->get(route('locale.change', 'ka'));
-		$response->assertStatus(302);
+		$response->assertRedirect(route('login.view'));
 	}
 
 	public function test_language_will_change_to_defualt_language_which_is_english_if_wrong_locale_is_provided()
 	{
+		$page = $this->get(route('login.view'));
 		$response = $this->get(route('locale.change', 'es'));
-		$response->assertStatus(302);
+		$response->assertRedirect(route('login.view'));
 	}
 }
